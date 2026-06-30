@@ -1,0 +1,285 @@
+/* ============================================================
+   Shared stylesheet for the AllLanguages learning workspace.
+   Dark theme, monospace code, side-by-side comparison tables.
+   ============================================================ */
+
+:root {
+  --bg: #0d1117;
+  --bg-soft: #161b22;
+  --bg-card: #1c2230;
+  --border: #2d3340;
+  --text: #e6edf3;
+  --text-dim: #9aa5b1;
+  --accent: #58a6ff;
+  --py: #ffd43b; /* Python yellow */
+  --ts: #3178c6; /* TypeScript blue */
+  --code-bg: #0b0f16;
+  --radius: 12px;
+  --mono: "Cascadia Code", "Fira Code", Consolas, "SF Mono", Menlo, monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.6;
+}
+
+/* ---- Sticky header ---- */
+header.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(13, 17, 23, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+header.topbar a.home {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+header.topbar a.home:hover {
+  text-decoration: underline;
+}
+
+header.topbar .crumb {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 28px 80px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0 0 6px;
+}
+h1 .emoji {
+  margin-right: 10px;
+}
+.subtitle {
+  color: var(--text-dim);
+  margin: 0 0 28px;
+  font-size: 1.05rem;
+}
+
+h2 {
+  margin-top: 40px;
+  font-size: 1.3rem;
+  border-left: 4px solid var(--accent);
+  padding-left: 12px;
+}
+
+/* ---- Language badges ---- */
+.badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+.badge.py {
+  background: rgba(255, 212, 59, 0.15);
+  color: var(--py);
+}
+.badge.ts {
+  background: rgba(49, 120, 198, 0.2);
+  color: #6cb6ff;
+}
+.badge.cs {
+  background: rgba(104, 33, 122, 0.2);
+  color: #c792ea;
+}
+.badge.rs {
+  background: rgba(222, 100, 36, 0.2);
+  color: #f4a261;
+}
+.badge.cpp {
+  background: rgba(0, 89, 156, 0.2);
+  color: #5eb8ff;
+}
+.badge.java {
+  background: rgba(231, 111, 0, 0.2);
+  color: #f5a25d;
+}
+
+/* ---- Comparison table ---- */
+table.cmp {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0 10px;
+  background: var(--bg-soft);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+table.cmp th,
+table.cmp td {
+  text-align: left;
+  vertical-align: top;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+table.cmp thead th {
+  background: var(--bg-card);
+  font-size: 0.85rem;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+table.cmp tbody tr:last-child td {
+  border-bottom: none;
+}
+table.cmp tbody tr:hover {
+  background: rgba(88, 166, 255, 0.05);
+}
+
+table.cmp td.op {
+  width: 26%;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* inline code + code blocks */
+code {
+  font-family: var(--mono);
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 0.88rem;
+  color: #e6edf3;
+  white-space: pre-wrap;
+  display: inline-block;
+}
+td code {
+  display: block;
+  background: var(--code-bg);
+}
+
+.note {
+  background: rgba(88, 166, 255, 0.08);
+  border: 1px solid rgba(88, 166, 255, 0.3);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin: 20px 0;
+  font-size: 0.95rem;
+}
+.note strong {
+  color: var(--accent);
+}
+.warn {
+  background: rgba(255, 159, 67, 0.08);
+  border-color: rgba(255, 159, 67, 0.35);
+}
+.warn strong {
+  color: #ff9f43;
+}
+
+.files {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 8px 0 26px;
+}
+.files a {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+.files a:hover {
+  border-color: var(--accent);
+}
+
+/* ---- index landing grid ---- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+a.card {
+  display: block;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  text-decoration: none;
+  color: var(--text);
+  transition:
+    transform 0.12s ease,
+    border-color 0.12s ease;
+}
+a.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+a.card .num {
+  font-family: var(--mono);
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+a.card h3 {
+  margin: 4px 0 6px;
+  font-size: 1.15rem;
+}
+a.card p {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+.card .focus {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.72rem;
+  color: var(--py);
+  border: 1px solid rgba(255, 212, 59, 0.4);
+  border-radius: 5px;
+  padding: 1px 6px;
+}
+
+/* run cheatsheet */
+.cheat {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  margin-top: 18px;
+}
+.cheat code {
+  display: block;
+  margin: 6px 0;
+  background: var(--code-bg);
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 22px;
+}

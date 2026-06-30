@@ -1,0 +1,7 @@
+---
+pid: 2080
+cwd: "C:\Users\vetri\OneDrive\Desktop\Programming\AllLanguages"
+command: "winget install BrechtSanders.WinLibs.POSIX.UCRT --accept-package-agreements --accept-source-agreements"
+started_at: 2026-06-30T09:27:58.796Z
+running_for_ms: 120013   
+---

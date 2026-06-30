@@ -1,0 +1,43 @@
+---
+pid: 24784
+cwd: "C:\Users\vetri\OneDrive\Desktop\Programming\AllLanguages"
+command: "cd \"C:\\Users\\vetri\\OneDrive\\Desktop\\Programming\\AllLanguages\"; $files = @(\"01_variables\",\"02_datatypes\",\"03_operators\",\"04_conditions\",\"05_loops\",\"06_io\",\"07_functions\",\"08_strings\",\"09_arrays\"); foreach ($f in $files) { Write-Host \"=== $f ===\"; g++ -std=c++17 \"cpp/$f.cpp\" -o \"cpp/$f.exe\" 2>&1; if ($LASTEXITCODE -ne 0) { Write-Host \"FAILED compile $f\" } }"
+started_at: 2026-06-29T07:17:21.320Z
+running_for_ms: 4595000  
+---
+=== 01_variables ===
+=== 02_datatypes ===
+=== 03_operators ===
+=== 04_conditions ===
+=== 05_loops ===
+=== 06_io ===
+=== 07_functions ===
+cpp/07_functions.cpp: In function 'std::pair<int, int> min_max(const std::vector<int>&)':
+cpp/07_functions.cpp:54:10: error: expected unqualified-id before '[' token
+     auto [lo_it, hi_it] = std::minmax_element(nums.begin(), nums.end());
+          ^
+cpp/07_functions.cpp:55:14: error: 'lo_it' was not declared in this scope
+     return {*lo_it, *hi_it};
+              ^~~~~
+cpp/07_functions.cpp:55:22: error: 'hi_it' was not declared in this scope
+     return {*lo_it, *hi_it};
+                      ^~~~~
+cpp/07_functions.cpp:55:27: error: could not convert '{<expression error>, <expression error>}' from '<brace-enclosed initializer list>' to 'std::pair<int, int>'
+     return {*lo_it, *hi_it};
+                           ^
+cpp/07_functions.cpp: In function 'int main()':
+cpp/07_functions.cpp:81:10: error: expected unqualified-id before '[' token
+     auto [low, high] = min_max({4, 1, 9, 2});
+          ^
+cpp/07_functions.cpp:81:44: error: expected primary-expression before ')' token
+     auto [low, high] = min_max({4, 1, 9, 2});
+                                            ^
+cpp/07_functions.cpp:82:18: error: 'low' was not declared in this scope
+     std::cout << low << " " << high << std::endl;
+                  ^~~
+cpp/07_functions.cpp:82:32: error: 'high' was not declared in this scope
+     std::cout << low << " " << high << std::endl;
+                                ^~~~
+FAILED compile 07_functions
+=== 08_strings ===
+=== 09_arrays ===

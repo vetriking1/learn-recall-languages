@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operators — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 03 · Operators</span>
+    </header>
+    <main>
+      <h1><span class="emoji">➗</span>Operators</h1>
+      <p class="subtitle">Arithmetic, comparison, logical, assignment.</p>
+      <div class="files">
+        <a href="../python/03_operators.py">python/03_operators.py</a>
+        <a href="../typescript/03_operators.ts">typescript/03_operators.ts</a>
+        <a href="../csharp/03_operators.cs">csharp/03_operators.cs</a>
+        <a href="../rust/03_operators.rs">rust/03_operators.rs</a>
+        <a href="../cpp/03_operators.cpp">cpp/03_operators.cpp</a>
+        <a href="../java/03_operators.java">java/03_operators.java</a>
+      </div>
+
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Float divide</td>
+            <td><code>5 / 2   # 2.5</code></td>
+            <td><code>5 / 2   // 2.5</code></td>
+            <td><code>5 / 2.0  // 2.5 (int/int truncates!)</code></td>
+            <td><code>5_f64 / 2.0  // 2.5 (must cast)</code></td>
+            <td><code>5.0 / 2  // 2.5 (int/int truncates!)</code></td>
+            <td><code>5 / 2.0  // 2.5 (int/int truncates!)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Floor divide</td>
+            <td><code>5 // 2  # 2</code></td>
+            <td><code>Math.floor(5 / 2) // 2</code></td>
+            <td><code>5 / 2   // 2 (int/int is floor)</code></td>
+            <td><code>5 / 2   // 2 (int/int truncates)</code></td>
+            <td><code>5 / 2   // 2 (int/int truncates)</code></td>
+            <td><code>5 / 2   // 2 (int/int truncates)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Power</td>
+            <td><code>2 ** 10</code></td>
+            <td><code>2 ** 10</code></td>
+            <td><code>Math.Pow(2, 10)  // no ** operator</code></td>
+            <td><code>2_i32.pow(10)   // no ** operator</code></td>
+            <td><code>std::pow(2, 10)  // no ** operator</code></td>
+            <td><code>Math.pow(2, 10)  // no ** operator</code></td>
+          </tr>
+          <tr>
+            <td class="op">Equality</td>
+            <td><code>a == b</code></td>
+            <td><code>a === b   // strict, use this</code></td>
+            <td><code>a == b   // always strict (no coercion)</code></td>
+            <td><code>a == b   // no implicit coercion</code></td>
+            <td><code>a == b</code></td>
+            <td><code>a == b (primitives); a.equals(b) (objects!)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Not equal</td>
+            <td><code>a != b</code></td>
+            <td><code>a !== b</code></td>
+            <td><code>a != b</code></td>
+            <td><code>a != b</code></td>
+            <td><code>a != b</code></td>
+            <td><code>a != b  // !a.equals(b) for objects</code></td>
+          </tr>
+          <tr>
+            <td class="op">Logical AND / OR / NOT</td>
+            <td><code>and   or   not</code></td>
+            <td><code>&amp;&amp;    ||    !</code></td>
+            <td><code>&amp;&amp;    ||    !</code></td>
+            <td><code>&amp;&amp;    ||    !</code></td>
+            <td><code>&amp;&amp;    ||    !</code></td>
+            <td><code>&amp;&amp;    ||    !</code></td>
+          </tr>
+          <tr>
+            <td class="op">Increment</td>
+            <td><code>n += 1   # no ++</code></td>
+            <td><code>n++;</code></td>
+            <td><code>n++;</code></td>
+            <td><code>n += 1;  // no ++ operator</code></td>
+            <td><code>n++;  // or ++n</code></td>
+            <td><code>n++;  // or ++n</code></td>
+          </tr>
+          <tr>
+            <td class="op">Chained compare</td>
+            <td><code>1 &lt; x &lt; 10</code></td>
+            <td><code>1 &lt; x &amp;&amp; x &lt; 10</code></td>
+            <td><code>1 &lt; x &amp;&amp; x &lt; 10</code></td>
+            <td><code>1 &lt; x &amp;&amp; x &lt; 10</code></td>
+            <td><code>1 &lt; x &amp;&amp; x &lt; 10</code></td>
+            <td><code>1 &lt; x &amp;&amp; x &lt; 10</code></td>
+          </tr>
+          <tr>
+            <td class="op">Membership</td>
+            <td><code>3 in [1, 2, 3]</code></td>
+            <td><code>[1, 2, 3].includes(3)</code></td>
+            <td><code>list.Contains(3)</code></td>
+            <td><code>[1,2,3].contains(&amp;3)</code></td>
+            <td><code>std::find(v.begin(),v.end(),3)!=v.end()</code></td>
+            <td><code>list.contains(3)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Ternary</td>
+            <td><code>"y" if c else "n"</code></td>
+            <td><code>c ? "y" : "n"</code></td>
+            <td><code>c ? "y" : "n"</code></td>
+            <td><code>if c { "y" } else { "n" }</code></td>
+            <td><code>c ? "y" : "n"</code></td>
+            <td><code>c ? "y" : "n"</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note warn">
+        <strong>Watch out:</strong> Always use
+        <code style="display: inline-block">===</code> in TypeScript.
+        <code style="display: inline-block">==</code> coerces types
+        (<code style="display: inline-block">"5" == 5</code> is
+        <code style="display: inline-block">true</code>!). Python's
+        <code style="display: inline-block">==</code> already compares by value
+        without that surprise.
+      </div>
+      <div class="note">
+        <strong>Recall:</strong> Python uses the words
+        <code style="display: inline-block">and / or / not</code> and has no
+        <code style="display: inline-block">++</code>; TypeScript uses
+        <code style="display: inline-block">&amp;&amp; / || / !</code> and does
+        have <code style="display: inline-block">++</code>.
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

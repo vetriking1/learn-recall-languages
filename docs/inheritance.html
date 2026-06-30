@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inheritance — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 12 · Inheritance</span>
+    </header>
+    <main>
+      <h1><span class="emoji">🧬</span>Inheritance</h1>
+      <p class="subtitle">Reusing a base type, overriding methods, calling up.</p>
+      <div class="files">
+        <a href="../python/12_inheritance.py">python/12_inheritance.py</a>
+        <a href="../typescript/12_inheritance.ts">typescript/12_inheritance.ts</a>
+        <a href="../csharp/12_inheritance.cs">csharp/12_inheritance.cs</a>
+        <a href="../rust/12_inheritance.rs">rust/12_inheritance.rs</a>
+        <a href="../cpp/12_inheritance.cpp">cpp/12_inheritance.cpp</a>
+        <a href="../java/12_inheritance.java">java/12_inheritance.java</a>
+      </div>
+
+      <div class="note warn">
+        <strong>Rust has no inheritance.</strong> No base classes, no
+        <code style="display:inline-block">super</code>. You reuse behavior with a
+        <code style="display:inline-block">trait</code> (default methods) and reuse data
+        by <em>composition</em> (a struct holding another struct).
+      </div>
+
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Subtype</td>
+            <td><code>class Dog(Animal):</code></td>
+            <td><code>class Dog extends Animal</code></td>
+            <td><code>class Dog : Animal</code></td>
+            <td><code>impl Animal for Dog (trait)</code></td>
+            <td><code>class Dog : public Animal</code></td>
+            <td><code>class Dog extends Animal</code></td>
+          </tr>
+          <tr>
+            <td class="op">Call base ctor</td>
+            <td><code>super().__init__(…)</code></td>
+            <td><code>super(…)</code></td>
+            <td><code>: base(…)</code></td>
+            <td><code>(n/a — no inheritance)</code></td>
+            <td><code>: Animal(…)</code></td>
+            <td><code>super(…)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Override needs keyword?</td>
+            <td><code>no (just redefine)</code></td>
+            <td><code>no (virtual by default)</code></td>
+            <td><code>virtual + override</code></td>
+            <td><code>redefine in impl</code></td>
+            <td><code>virtual + override</code></td>
+            <td><code>no (@Override optional)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Call parent method</td>
+            <td><code>super().describe()</code></td>
+            <td><code>super.describe()</code></td>
+            <td><code>base.Describe()</code></td>
+            <td><code>(no super — re-impl)</code></td>
+            <td><code>Animal::describe()</code></td>
+            <td><code>super.describe()</code></td>
+          </tr>
+          <tr>
+            <td class="op">Reuse model</td>
+            <td><code>inheritance</code></td>
+            <td><code>inheritance</code></td>
+            <td><code>inheritance</code></td>
+            <td><code>traits + composition</code></td>
+            <td><code>inheritance (multiple!)</code></td>
+            <td><code>inheritance (single)</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>Recall:</strong> methods dispatch to the override automatically in
+        Python/TS/Java (virtual by default), but C# and C++ require you to opt in with
+        <code style="display:inline-block">virtual</code> on the base. C++ allows
+        multiple inheritance; Java/C#/TS allow only one base class (plus interfaces).
+        Rust opts out entirely — favor a <code style="display:inline-block">trait</code>.
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

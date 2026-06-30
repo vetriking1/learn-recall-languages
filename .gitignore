@@ -1,0 +1,64 @@
+# ============================================================
+# AllLanguages — build outputs, deps, IDE, OS junk
+# Source files (*.py, *.ts, *.cs, *.rs, *.cpp, *.java) stay tracked.
+# ============================================================
+
+# ----- TypeScript (npm install in typescript/) -----
+node_modules/
+
+# ----- Python -----
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+env/
+.env
+
+# ----- Java (single-file launch emits .class next to .java) -----
+*.class
+
+# ----- C# / .NET -----
+bin/
+obj/
+*.user
+*.suo
+
+# ----- Rust & C++ compile outputs -----
+*.exe
+*.pdb
+*.o
+*.obj
+*.out
+*.ilk
+*.exp
+*.lib
+*.dll
+*.so
+*.dylib
+
+# Extensionless binaries (e.g. rustc -o rust/09_arrays)
+rust/*
+!rust/*.rs
+cpp/*
+!cpp/*.cpp
+practice/rust/*
+!practice/rust/*.rs
+practice/cpp/*
+!practice/cpp/*.cpp
+
+# ----- Editor / IDE -----
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ----- OS -----
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ----- Agent / local session (not part of the repo) -----
+terminals/

@@ -1,0 +1,7 @@
+---
+pid: 27004
+cwd: "C:\Users\vetri\OneDrive\Desktop\Programming\AllLanguages"
+command: "Start-Sleep -Seconds 30"
+started_at: 2026-06-30T09:28:16.690Z
+running_for_ms: 105016   
+---

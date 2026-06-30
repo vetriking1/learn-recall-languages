@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encapsulation — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 11 · Encapsulation</span>
+    </header>
+    <main>
+      <h1><span class="emoji">🔒</span>Encapsulation</h1>
+      <p class="subtitle">Hiding state behind methods that guard the invariants.</p>
+      <div class="files">
+        <a href="../python/11_encapsulation.py">python/11_encapsulation.py</a>
+        <a href="../typescript/11_encapsulation.ts">typescript/11_encapsulation.ts</a>
+        <a href="../csharp/11_encapsulation.cs">csharp/11_encapsulation.cs</a>
+        <a href="../rust/11_encapsulation.rs">rust/11_encapsulation.rs</a>
+        <a href="../cpp/11_encapsulation.cpp">cpp/11_encapsulation.cpp</a>
+        <a href="../java/11_encapsulation.java">java/11_encapsulation.java</a>
+      </div>
+
+      <div class="note warn">
+        <strong>Who actually enforces "private"?</strong> Python doesn't —
+        <code style="display:inline-block">__x</code> is just name-mangling by convention.
+        TS enforces <code style="display:inline-block">private</code> at compile time only.
+        C#, C++, Java and Rust enforce it for real. Rust's boundary is the
+        <em>module</em>, not the class.
+      </div>
+
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Private field</td>
+            <td><code>self.__balance</code></td>
+            <td><code>private balance / #balance</code></td>
+            <td><code>private int balance;</code></td>
+            <td><code>balance: i32 (no pub)</code></td>
+            <td><code>private: int balance;</code></td>
+            <td><code>private int balance;</code></td>
+          </tr>
+          <tr>
+            <td class="op">Read-only accessor</td>
+            <td><code>@property def balance</code></td>
+            <td><code>get balance()</code></td>
+            <td><code>{ get; private set; }</code></td>
+            <td><code>pub fn balance(&amp;self)</code></td>
+            <td><code>int getBalance() const</code></td>
+            <td><code>int getBalance()</code></td>
+          </tr>
+          <tr>
+            <td class="op">Enforced by</td>
+            <td><code>convention only</code></td>
+            <td><code>compiler (compile-time)</code></td>
+            <td><code>compiler</code></td>
+            <td><code>compiler (per module)</code></td>
+            <td><code>compiler</code></td>
+            <td><code>compiler</code></td>
+          </tr>
+          <tr>
+            <td class="op">Privacy boundary</td>
+            <td><code>(none)</code></td>
+            <td><code>the class</code></td>
+            <td><code>the class</code></td>
+            <td><code>the module</code></td>
+            <td><code>the class</code></td>
+            <td><code>the class</code></td>
+          </tr>
+          <tr>
+            <td class="op">Block invalid write</td>
+            <td><code>no setter on @property</code></td>
+            <td><code>readonly / no setter</code></td>
+            <td><code>private set;</code></td>
+            <td><code>private field + pub fn</code></td>
+            <td><code>private + validate in method</code></td>
+            <td><code>getter, no setter</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>Recall:</strong> the pattern is the same everywhere — keep the field
+        private, expose a read-only view, and force every change through a method that
+        validates it (here, no withdrawal below zero). The only real difference is
+        <em>how strictly</em> each language stops you reaching in: not at all (Python),
+        at compile time (everyone else), and scoped to the module rather than the type (Rust).
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

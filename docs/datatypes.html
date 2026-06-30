@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Types — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 02 · Data Types</span>
+    </header>
+    <main>
+      <h1><span class="emoji">🔡</span>Data Types</h1>
+      <p class="subtitle">Core types, checking a type, and converting.</p>
+      <div class="files">
+        <a href="../python/02_datatypes.py">python/02_datatypes.py</a>
+        <a href="../typescript/02_datatypes.ts">typescript/02_datatypes.ts</a>
+        <a href="../csharp/02_datatypes.cs">csharp/02_datatypes.cs</a>
+        <a href="../rust/02_datatypes.rs">rust/02_datatypes.rs</a>
+        <a href="../cpp/02_datatypes.cpp">cpp/02_datatypes.cpp</a>
+        <a href="../java/02_datatypes.java">java/02_datatypes.java</a>
+      </div>
+
+      <h2>The core types</h2>
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Concept</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Integer</td>
+            <td><code>x = 42        # int</code></td>
+            <td><code>let x = 42;   // number</code></td>
+            <td><code>int x = 42;</code></td>
+            <td><code>let x: i32 = 42;</code></td>
+            <td><code>int x = 42;</code></td>
+            <td><code>int x = 42;</code></td>
+          </tr>
+          <tr>
+            <td class="op">Float / decimal</td>
+            <td><code>x = 3.14      # float</code></td>
+            <td><code>let x = 3.14; // number (same type!)</code></td>
+            <td><code>double x = 3.14; // separate type</code></td>
+            <td><code>let x: f64 = 3.14;</code></td>
+            <td><code>double x = 3.14;</code></td>
+            <td><code>double x = 3.14;</code></td>
+          </tr>
+          <tr>
+            <td class="op">String</td>
+            <td><code>s = "hello"   # str</code></td>
+            <td><code>let s = "hello"; // string</code></td>
+            <td><code>string s = "hello";</code></td>
+            <td><code>let s: &amp;str = "hello"; // or String</code></td>
+            <td><code>std::string s = "hello";</code></td>
+            <td><code>String s = "hello"; // capital S</code></td>
+          </tr>
+          <tr>
+            <td class="op">Boolean</td>
+            <td><code>b = True      # capital T/F</code></td>
+            <td><code>let b = true;    // lowercase</code></td>
+            <td><code>bool b = true;   // lowercase</code></td>
+            <td><code>let b: bool = true;</code></td>
+            <td><code>bool b = true;</code></td>
+            <td><code>boolean b = true;</code></td>
+          </tr>
+          <tr>
+            <td class="op">Empty / null</td>
+            <td><code>x = None</code></td>
+            <td><code>let x = null;   // or undefined</code></td>
+            <td><code>string? x = null; // needs ?</code></td>
+            <td><code>let x: Option&lt;i32&gt; = None; // no null</code></td>
+            <td><code>int* x = nullptr;</code></td>
+            <td><code>String x = null; // objects only</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Checking & converting</h2>
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Check type</td>
+            <td><code>type(x)</code></td>
+            <td><code>typeof x</code></td>
+            <td><code>x.GetType() / x is int</code></td>
+            <td><code>// compile-time only; use is patterns</code></td>
+            <td><code>typeid(x).name()</code></td>
+            <td><code>x.getClass() / x instanceof Integer</code></td>
+          </tr>
+          <tr>
+            <td class="op">String → int</td>
+            <td><code>int("10")</code></td>
+            <td><code>Number("10") / parseInt("10")</code></td>
+            <td><code>int.Parse("10")</code></td>
+            <td><code>"10".parse::&lt;i32&gt;().unwrap()</code></td>
+            <td><code>std::stoi("10")</code></td>
+            <td><code>Integer.parseInt("10")</code></td>
+          </tr>
+          <tr>
+            <td class="op">Number → string</td>
+            <td><code>str(10)</code></td>
+            <td><code>String(10)</code></td>
+            <td><code>10.ToString()</code></td>
+            <td><code>10.to_string()</code></td>
+            <td><code>std::to_string(10)</code></td>
+            <td><code>Integer.toString(10)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Numeric cast</td>
+            <td><code>float(10)</code></td>
+            <td><code>10 as number (implicit)</code></td>
+            <td><code>(double)10</code></td>
+            <td><code>10_i32 as f64 // explicit `as`</code></td>
+            <td><code>static_cast&lt;double&gt;(10)</code></td>
+            <td><code>(double) 10</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>Key difference:</strong> Python splits numbers into
+        <code style="display: inline-block">int</code> and
+        <code style="display: inline-block">float</code>; TypeScript has a single
+        <code style="display: inline-block">number</code> (a 64-bit float).
+      </div>
+      <div class="note warn">
+        <strong>Watch out:</strong> Python has one empty value
+        (<code style="display: inline-block">None</code>). TypeScript has
+        <em>two</em>: <code style="display: inline-block">null</code> (set on
+        purpose) and <code style="display: inline-block">undefined</code>
+        (never assigned).
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

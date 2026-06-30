@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrays / Lists — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 09 · Arrays / Lists ★</span>
+    </header>
+    <main>
+      <h1><span class="emoji">📋</span>Arrays / Lists <span class="card"><span class="focus" style="font-size:0.7rem;">★ method focus</span></span></h1>
+      <p class="subtitle">
+        add / remove from either end, transform, sort — the recall sheet.
+      </p>
+      <div class="files">
+        <a href="../python/09_arrays.py">python/09_arrays.py</a>
+        <a href="../typescript/09_arrays.ts">typescript/09_arrays.ts</a>
+        <a href="../csharp/09_arrays.cs">csharp/09_arrays.cs</a>
+        <a href="../rust/09_arrays.rs">rust/09_arrays.rs</a>
+        <a href="../cpp/09_arrays.cpp">cpp/09_arrays.cpp</a>
+        <a href="../java/09_arrays.java">java/09_arrays.java</a>
+      </div>
+
+      <div class="note warn">
+        <strong>The classic gotcha:</strong> add to the end is
+        <code style="display: inline-block">l.append(x)</code> in Python,
+        <code style="display: inline-block">l.push(x)</code> in TypeScript/Rust,
+        <code style="display: inline-block">l.Add(x)</code> in C#, and
+        <code style="display: inline-block">l.add(x)</code> in Java.
+      </div>
+
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Length</td>
+            <td><code>len(l)</code></td>
+            <td><code>l.length</code></td>
+            <td><code>l.Count</code></td>
+            <td><code>v.len()</code></td>
+            <td><code>v.size()</code></td>
+            <td><code>l.size()</code></td>
+          </tr>
+          <tr>
+            <td class="op">Last element</td>
+            <td><code>l[-1]</code></td>
+            <td><code>l.at(-1)  /  l[l.length-1]</code></td>
+            <td><code>l[^1]</code></td>
+            <td><code>v[v.len()-1]  // or v.last()</code></td>
+            <td><code>v.back()</code></td>
+            <td><code>l.get(l.size()-1)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Add to END</td>
+            <td><code>l.append(x)</code></td>
+            <td><code>l.push(x)</code></td>
+            <td><code>l.Add(x)</code></td>
+            <td><code>v.push(x)</code></td>
+            <td><code>v.push_back(x)</code></td>
+            <td><code>l.add(x)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Add many to end</td>
+            <td><code>l.extend([a, b])</code></td>
+            <td><code>l.push(a, b)</code></td>
+            <td><code>l.AddRange(new[] { a, b })</code></td>
+            <td><code>v.extend([a, b])</code></td>
+            <td><code>v.insert(v.end(), {a, b})</code></td>
+            <td><code>l.addAll(List.of(a, b))</code></td>
+          </tr>
+          <tr>
+            <td class="op">Add to FRONT</td>
+            <td><code>l.insert(0, x)</code></td>
+            <td><code>l.unshift(x)</code></td>
+            <td><code>l.Insert(0, x)</code></td>
+            <td><code>v.insert(0, x)</code></td>
+            <td><code>v.insert(v.begin(), x)</code></td>
+            <td><code>l.add(0, x)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Remove from END</td>
+            <td><code>l.pop()</code></td>
+            <td><code>l.pop()</code></td>
+            <td><code>l.RemoveAt(l.Count - 1)</code></td>
+            <td><code>v.pop()  // returns Option&lt;T&gt;</code></td>
+            <td><code>v.pop_back()</code></td>
+            <td><code>l.remove(l.size()-1)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Remove from FRONT</td>
+            <td><code>l.pop(0)</code></td>
+            <td><code>l.shift()</code></td>
+            <td><code>l.RemoveAt(0)</code></td>
+            <td><code>v.remove(0)</code></td>
+            <td><code>v.erase(v.begin())</code></td>
+            <td><code>l.remove(0)  // by index</code></td>
+          </tr>
+          <tr>
+            <td class="op">Remove by value</td>
+            <td><code>l.remove(x)</code></td>
+            <td><code>l.splice(l.indexOf(x), 1)</code></td>
+            <td><code>l.Remove(x)</code></td>
+            <td><code>v.retain(|&amp;e| e != x)</code></td>
+            <td><code>v.erase(std::remove(v.begin(),v.end(),x),v.end())</code></td>
+            <td><code>l.remove(Integer.valueOf(x))  // ⚠ not remove(x)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Slice</td>
+            <td><code>l[1:3]</code></td>
+            <td><code>l.slice(1, 3)</code></td>
+            <td><code>l.GetRange(1, 2)</code></td>
+            <td><code>&amp;v[1..3]</code></td>
+            <td><code>vector(v.begin()+1, v.begin()+3)</code></td>
+            <td><code>l.subList(1, 3)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Reverse (copy)</td>
+            <td><code>l[::-1]</code></td>
+            <td><code>[...l].reverse()</code></td>
+            <td><code>l.AsEnumerable().Reverse().ToList()</code></td>
+            <td><code>v.iter().rev().copied().collect::&lt;Vec&lt;_&gt;&gt;()</code></td>
+            <td><code>std::reverse(v.begin(), v.end())</code></td>
+            <td><code>Collections.reverse(copy)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Contains?</td>
+            <td><code>x in l</code></td>
+            <td><code>l.includes(x)</code></td>
+            <td><code>l.Contains(x)</code></td>
+            <td><code>v.contains(&amp;x)</code></td>
+            <td><code>std::find(v.begin(),v.end(),x)!=v.end()</code></td>
+            <td><code>l.contains(x)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Index of value</td>
+            <td><code>l.index(x)</code></td>
+            <td><code>l.indexOf(x)</code></td>
+            <td><code>l.IndexOf(x)</code></td>
+            <td><code>v.iter().position(|&amp;e| e == x)</code></td>
+            <td><code>std::find(v.begin(),v.end(),x)-v.begin()</code></td>
+            <td><code>l.indexOf(x)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Map</td>
+            <td><code>[f(x) for x in l]</code></td>
+            <td><code>l.map(f)</code></td>
+            <td><code>l.Select(f).ToList()</code></td>
+            <td><code>v.iter().map(|x| f(x)).collect()</code></td>
+            <td><code>std::transform(v.begin(),v.end(),...)</code></td>
+            <td><code>l.stream().map(f).toList()</code></td>
+          </tr>
+          <tr>
+            <td class="op">Filter</td>
+            <td><code>[x for x in l if cond]</code></td>
+            <td><code>l.filter(x =&gt; cond)</code></td>
+            <td><code>l.Where(x =&gt; cond).ToList()</code></td>
+            <td><code>v.iter().filter(|&amp;&amp;x| cond).collect()</code></td>
+            <td><code>std::copy_if(v.begin(),v.end(),...)</code></td>
+            <td><code>l.stream().filter(x -&gt; cond).toList()</code></td>
+          </tr>
+          <tr>
+            <td class="op">Reduce / sum</td>
+            <td><code>sum(l)</code></td>
+            <td><code>l.reduce((a, b) =&gt; a + b, 0)</code></td>
+            <td><code>l.Sum()</code></td>
+            <td><code>v.iter().sum::&lt;i32&gt;()</code></td>
+            <td><code>std::accumulate(v.begin(),v.end(),0)</code></td>
+            <td><code>l.stream().mapToInt(i-&gt;i).sum()</code></td>
+          </tr>
+          <tr>
+            <td class="op">Sort ascending</td>
+            <td><code>l.sort()</code></td>
+            <td><code>l.sort((a, b) =&gt; a - b)</code></td>
+            <td><code>l.Sort()</code></td>
+            <td><code>v.sort()  // numeric, stable</code></td>
+            <td><code>std::sort(v.begin(), v.end())</code></td>
+            <td><code>Collections.sort(l)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Sort descending</td>
+            <td><code>sorted(l, reverse=True)</code></td>
+            <td><code>[...l].sort((a, b) =&gt; b - a)</code></td>
+            <td><code>l.Sort((a, b) =&gt; b.CompareTo(a))</code></td>
+            <td><code>v.sort_by(|a, b| b.cmp(a))</code></td>
+            <td><code>std::sort(v.begin(),v.end(),std::greater&lt;int&gt;())</code></td>
+            <td><code>l.sort(Collections.reverseOrder())</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note warn">
+        <strong>Sorting trap:</strong> Python's
+        <code style="display: inline-block">l.sort()</code> orders numbers
+        numerically. TypeScript's
+        <code style="display: inline-block">l.sort()</code> orders them
+        <em>as strings</em> by default
+        (<code style="display: inline-block">[1, 10, 2]</code>!) — always pass a
+        comparator <code style="display: inline-block">(a, b) =&gt; a - b</code>.
+      </div>
+      <div class="note">
+        <strong>Recall the four ends:</strong>
+        front-add = <code style="display: inline-block">insert(0,x)</code> /
+        <code style="display: inline-block">unshift</code>,
+        front-remove = <code style="display: inline-block">pop(0)</code> /
+        <code style="display: inline-block">shift</code>,
+        end-add = <code style="display: inline-block">append</code> /
+        <code style="display: inline-block">push</code>,
+        end-remove = <code style="display: inline-block">pop()</code> /
+        <code style="display: inline-block">pop()</code>.
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

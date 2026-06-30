@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Structures — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 15 · Data Structures ★</span>
+    </header>
+    <main>
+      <h1><span class="emoji">🗂️</span>Data Structures <span class="card"><span class="focus" style="font-size:0.7rem;">★ method focus</span></span></h1>
+      <p class="subtitle">
+        Maps, sets, stack, queue, heap, and tuples/pairs — one recall sheet for
+        every built-in container that isn't a plain array.
+      </p>
+      <div class="files">
+        <a href="../python/15_data_structures.py">python/15_data_structures.py</a>
+        <a href="../typescript/15_data_structures.ts">typescript/15_data_structures.ts</a>
+        <a href="../csharp/15_data_structures.cs">csharp/15_data_structures.cs</a>
+        <a href="../rust/15_data_structures.rs">rust/15_data_structures.rs</a>
+        <a href="../cpp/15_data_structures.cpp">cpp/15_data_structures.cpp</a>
+        <a href="../java/15_data_structures.java">java/15_data_structures.java</a>
+      </div>
+
+      <div class="note warn">
+        <strong>The classic gotcha:</strong> safe lookup with a default is
+        <code style="display: inline-block">d.get(k, 0)</code> in Python,
+        <code style="display: inline-block">map.get(k) ?? 0</code> in TypeScript,
+        <code style="display: inline-block">dict.GetValueOrDefault(k, 0)</code> in C#,
+        <code style="display: inline-block">map.get(&amp;k).copied().unwrap_or(0)</code> in Rust,
+        <code style="display: inline-block">m.count(k) ? m.at(k) : 0</code> in C++, and
+        <code style="display: inline-block">map.getOrDefault(k, 0)</code> in Java.
+      </div>
+
+      <h2 style="margin-top: 2rem; font-size: 1.1rem;">Maps / Dictionaries</h2>
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Create</td>
+            <td><code>{"k": "v"}</code></td>
+            <td><code>new Map([["k","v"]])</code></td>
+            <td><code>new Dictionary&lt;K,V&gt; { ["k"]="v" }</code></td>
+            <td><code>HashMap::from([("k","v")])</code></td>
+            <td><code>{{"k","v"}}</code></td>
+            <td><code>Map.of("k", "v")</code></td>
+          </tr>
+          <tr>
+            <td class="op">Get</td>
+            <td><code>d["k"]</code></td>
+            <td><code>map.get("k")</code></td>
+            <td><code>d["k"]</code></td>
+            <td><code>map["k"]  // or .get(&amp;k)</code></td>
+            <td><code>m.at("k")</code></td>
+            <td><code>map.get("k")</code></td>
+          </tr>
+          <tr>
+            <td class="op">Set</td>
+            <td><code>d["k"] = v</code></td>
+            <td><code>map.set("k", v)</code></td>
+            <td><code>d["k"] = v</code></td>
+            <td><code>map.insert("k", v)</code></td>
+            <td><code>m["k"] = v</code></td>
+            <td><code>map.put("k", v)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Get or default</td>
+            <td><code>d.get(k, 0)</code></td>
+            <td><code>map.get(k) ?? 0</code></td>
+            <td><code>d.GetValueOrDefault(k, 0)</code></td>
+            <td><code>map.get(&amp;k).copied().unwrap_or(0)</code></td>
+            <td><code>m.count(k) ? m.at(k) : 0</code></td>
+            <td><code>map.getOrDefault(k, 0)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Delete</td>
+            <td><code>del d["k"]</code></td>
+            <td><code>map.delete("k")</code></td>
+            <td><code>d.Remove("k")</code></td>
+            <td><code>map.remove("k")</code></td>
+            <td><code>m.erase("k")</code></td>
+            <td><code>map.remove("k")</code></td>
+          </tr>
+          <tr>
+            <td class="op">Contains key?</td>
+            <td><code>"k" in d</code></td>
+            <td><code>map.has("k")</code></td>
+            <td><code>d.ContainsKey("k")</code></td>
+            <td><code>map.contains_key("k")</code></td>
+            <td><code>m.count("k")</code></td>
+            <td><code>map.containsKey("k")</code></td>
+          </tr>
+          <tr>
+            <td class="op">Size</td>
+            <td><code>len(d)</code></td>
+            <td><code>map.size</code></td>
+            <td><code>d.Count</code></td>
+            <td><code>map.len()</code></td>
+            <td><code>m.size()</code></td>
+            <td><code>map.size()</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 style="margin-top: 2rem; font-size: 1.1rem;">Sets</h2>
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Create</td>
+            <td><code>{1, 2, 3}</code></td>
+            <td><code>new Set([1, 2, 3])</code></td>
+            <td><code>new HashSet&lt;int&gt; { 1, 2 }</code></td>
+            <td><code>HashSet::from([1, 2])</code></td>
+            <td><code>{1, 2, 3}</code></td>
+            <td><code>Set.of(1, 2, 3)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Add</td>
+            <td><code>s.add(x)</code></td>
+            <td><code>s.add(x)</code></td>
+            <td><code>s.Add(x)</code></td>
+            <td><code>s.insert(x)</code></td>
+            <td><code>s.insert(x)</code></td>
+            <td><code>s.add(x)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Remove</td>
+            <td><code>s.discard(x)</code></td>
+            <td><code>s.delete(x)</code></td>
+            <td><code>s.Remove(x)</code></td>
+            <td><code>s.remove(&amp;x)</code></td>
+            <td><code>s.erase(x)</code></td>
+            <td><code>s.remove(x)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Contains?</td>
+            <td><code>x in s</code></td>
+            <td><code>s.has(x)</code></td>
+            <td><code>s.Contains(x)</code></td>
+            <td><code>s.contains(&amp;x)</code></td>
+            <td><code>s.count(x)</code></td>
+            <td><code>s.contains(x)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Union</td>
+            <td><code>s | t</code></td>
+            <td><code>new Set([...s, ...t])</code></td>
+            <td><code>s.Union(t)</code></td>
+            <td><code>s.union(&amp;t)</code></td>
+            <td><code>set_union(s,t,...)</code></td>
+            <td><code>union of both sets</code></td>
+          </tr>
+          <tr>
+            <td class="op">Intersection</td>
+            <td><code>s &amp; t</code></td>
+            <td><code>[...s].filter(x =&gt; t.has(x))</code></td>
+            <td><code>s.Intersect(t)</code></td>
+            <td><code>s.intersection(&amp;t)</code></td>
+            <td><code>set_intersection(...)</code></td>
+            <td><code>s.retainAll(t)</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 style="margin-top: 2rem; font-size: 1.1rem;">Stack &amp; Queue</h2>
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Stack push</td>
+            <td><code>s.append(x)</code></td>
+            <td><code>s.push(x)</code></td>
+            <td><code>stack.Push(x)</code></td>
+            <td><code>v.push(x)</code></td>
+            <td><code>s.push(x)</code></td>
+            <td><code>stack.push(x)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Stack pop</td>
+            <td><code>s.pop()</code></td>
+            <td><code>s.pop()</code></td>
+            <td><code>stack.Pop()</code></td>
+            <td><code>v.pop()</code></td>
+            <td><code>s.pop()</code></td>
+            <td><code>stack.pop()</code></td>
+          </tr>
+          <tr>
+            <td class="op">Queue enqueue</td>
+            <td><code>q.append(x)</code></td>
+            <td><code>q.push(x)</code></td>
+            <td><code>queue.Enqueue(x)</code></td>
+            <td><code>q.push_back(x)</code></td>
+            <td><code>q.push(x)</code></td>
+            <td><code>queue.offer(x)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Queue dequeue</td>
+            <td><code>q.popleft()</code></td>
+            <td><code>q.shift()</code></td>
+            <td><code>queue.Dequeue()</code></td>
+            <td><code>q.pop_front()</code></td>
+            <td><code>q.pop()</code></td>
+            <td><code>queue.poll()</code></td>
+          </tr>
+          <tr>
+            <td class="op">Deque add front</td>
+            <td><code>dq.appendleft(x)</code></td>
+            <td><code>dq.unshift(x)</code></td>
+            <td><code>new LinkedList + AddFirst</code></td>
+            <td><code>dq.push_front(x)</code></td>
+            <td><code>dq.push_front(x)</code></td>
+            <td><code>deque.addFirst(x)</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 style="margin-top: 2rem; font-size: 1.1rem;">Heap / Priority Queue</h2>
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Min-heap type</td>
+            <td><code>heapq on list</code></td>
+            <td><code>no std lib — roll your own</code></td>
+            <td><code>PriorityQueue&lt;T&gt;</code></td>
+            <td><code>BinaryHeap&lt;Reverse&lt;T&gt;&gt;</code></td>
+            <td><code>priority_queue + greater</code></td>
+            <td><code>PriorityQueue&lt;T&gt;</code></td>
+          </tr>
+          <tr>
+            <td class="op">Push</td>
+            <td><code>heappush(h, x)</code></td>
+            <td><code>heap.push(x)</code></td>
+            <td><code>pq.Enqueue(x)</code></td>
+            <td><code>heap.push(Reverse(x))</code></td>
+            <td><code>pq.push(x)</code></td>
+            <td><code>pq.offer(x)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Pop min</td>
+            <td><code>heappop(h)</code></td>
+            <td><code>heap.pop()</code></td>
+            <td><code>pq.Dequeue()</code></td>
+            <td><code>heap.pop().0</code></td>
+            <td><code>pq.top(); pq.pop()</code></td>
+            <td><code>pq.poll()</code></td>
+          </tr>
+          <tr>
+            <td class="op">Peek min</td>
+            <td><code>h[0]</code></td>
+            <td><code>heap.peek()</code></td>
+            <td><code>pq.Peek</code></td>
+            <td><code>heap.peek().0</code></td>
+            <td><code>pq.top()</code></td>
+            <td><code>pq.peek()</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 style="margin-top: 2rem; font-size: 1.1rem;">Tuples / Pairs</h2>
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Create pair</td>
+            <td><code>(10, 20)</code></td>
+            <td><code>const p: [number, number] = [10, 20]</code></td>
+            <td><code>(10, 20)</code> ValueTuple</td>
+            <td><code>(10, 20)</code></td>
+            <td><code>std::pair(10, 20)</code></td>
+            <td><code>int[] {10, 20}</code></td>
+          </tr>
+          <tr>
+            <td class="op">Access</td>
+            <td><code>p[0], p[1]</code></td>
+            <td><code>p[0], p[1]</code></td>
+            <td><code>p.Item1, p.Item2</code></td>
+            <td><code>p.0, p.1</code></td>
+            <td><code>p.first, p.second</code></td>
+            <td><code>p[0], p[1]</code></td>
+          </tr>
+          <tr>
+            <td class="op">Unpack</td>
+            <td><code>x, y = p</code></td>
+            <td><code>const [x, y] = p</code></td>
+            <td><code>var (x, y) = p</code></td>
+            <td><code>let (x, y) = p</code></td>
+            <td><code>auto [x, y] = p</code></td>
+            <td><code>int x = p[0]</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>Practice:</strong> six classic exercises (word frequency, two-sum,
+        dedupe, valid parentheses, merge sorted, group anagrams) live in
+        <code style="display: inline-block">practice/*/data_structures.*</code>
+        — see <a href="../practice/README.md">practice/README.md</a>.
+      </div>
+      <div class="note warn">
+        <strong>TypeScript has no std heap or tuple runtime type</strong> — tuples
+        are compile-time only; heaps need a small custom class or an npm package
+        (we keep it dependency-free here).
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

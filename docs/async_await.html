@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async / Await — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 16 · Async / Await ★</span>
+    </header>
+    <main>
+      <h1><span class="emoji">⏳</span>Async / Await <span class="card"><span class="focus" style="font-size:0.7rem;">★ concept focus</span></span></h1>
+      <p class="subtitle">
+        Non-blocking work — define async functions, await results, run tasks in
+        parallel, and handle errors without freezing the thread.
+      </p>
+      <div class="files">
+        <a href="../python/16_async_await.py">python/16_async_await.py</a>
+        <a href="../typescript/16_async_await.ts">typescript/16_async_await.ts</a>
+        <a href="../csharp/16_async_await.cs">csharp/16_async_await.cs</a>
+        <a href="../rust/16_async_await.rs">rust/16_async_await.rs</a>
+        <a href="../cpp/16_async_await.cpp">cpp/16_async_await.cpp</a>
+        <a href="../java/16_async_await.java">java/16_async_await.java</a>
+      </div>
+
+      <div class="note warn">
+        <strong>Not every language spells it the same:</strong> Python, TypeScript,
+        and C# have <code style="display: inline-block">async</code> /
+        <code style="display: inline-block">await</code> keywords. Java uses
+        <code style="display: inline-block">CompletableFuture</code>.
+        C++ uses <code style="display: inline-block">std::async</code> +
+        <code style="display: inline-block">std::future</code> + <code style="display: inline-block">.get()</code>
+        (C++20 adds <code style="display: inline-block">co_await</code>). Rust has
+        <code style="display: inline-block">async fn</code> but needs a runtime
+        crate (tokio) for real I/O.
+      </div>
+
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Define async fn</td>
+            <td><code>async def f():</code></td>
+            <td><code>async function f()</code></td>
+            <td><code>async Task F()</code></td>
+            <td><code>async fn f()</code></td>
+            <td><code>std::async(launch::async, f)</code></td>
+            <td><code>CompletableFuture.supplyAsync(() -&gt; ...)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Await result</td>
+            <td><code>await f()</code></td>
+            <td><code>await f()</code></td>
+            <td><code>await f()</code></td>
+            <td><code>f().await</code></td>
+            <td><code>future.get()</code></td>
+            <td><code>future.join()</code></td>
+          </tr>
+          <tr>
+            <td class="op">Run async program</td>
+            <td><code>asyncio.run(main())</code></td>
+            <td><code>main().then(...)  /  top-level await</code></td>
+            <td><code>await Main()  // top-level</code></td>
+            <td><code>tokio::main  // needs crate</code></td>
+            <td><code>int main() { f.get(); }</code></td>
+            <td><code>public static void main</code></td>
+          </tr>
+          <tr>
+            <td class="op">Async delay</td>
+            <td><code>await asyncio.sleep(s)</code></td>
+            <td><code>await new Promise(r =&gt; setTimeout(r, ms))</code></td>
+            <td><code>await Task.Delay(ms)</code></td>
+            <td><code>tokio::time::sleep(dur).await</code></td>
+            <td><code>std::this_thread::sleep_for(dur)</code></td>
+            <td><code>Thread.sleep(ms)  // in supplier</code></td>
+          </tr>
+          <tr>
+            <td class="op">Run in parallel</td>
+            <td><code>await asyncio.gather(a(), b())</code></td>
+            <td><code>await Promise.all([a(), b()])</code></td>
+            <td><code>await Task.WhenAll(a(), b())</code></td>
+            <td><code>tokio::join!(a(), b())</code></td>
+            <td><code>auto fa = async(...); auto fb = async(...);</code></td>
+            <td><code>CompletableFuture.allOf(f1, f2)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Chain / transform</td>
+            <td><code>await step2(await step1())</code></td>
+            <td><code>await step2(await step1())</code></td>
+            <td><code>await Step2(await Step1())</code></td>
+            <td><code>step1().await.then(step2)</code></td>
+            <td><code>f.then(...)  // via nested .get()</code></td>
+            <td><code>f.thenApply(x -&gt; ...)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Sequential compose</td>
+            <td><code>await a(); await b()</code></td>
+            <td><code>await a(); await b()</code></td>
+            <td><code>await A(); await B()</code></td>
+            <td><code>a().await; b().await</code></td>
+            <td><code>fa.get(); fb.get();</code></td>
+            <td><code>f.thenCompose(x -&gt; g())</code></td>
+          </tr>
+          <tr>
+            <td class="op">Catch async error</td>
+            <td><code>try: await f() except E:</code></td>
+            <td><code>try { await f() } catch (e)</code></td>
+            <td><code>try { await f() } catch (E)</code></td>
+            <td><code>match f().await { Err(e) =&gt; }</code></td>
+            <td><code>try { f.get(); } catch</code></td>
+            <td><code>try { f.join(); } catch</code></td>
+          </tr>
+          <tr>
+            <td class="op">Return type</td>
+            <td><code>coroutine (no annotation needed)</code></td>
+            <td><code>Promise&lt;T&gt;</code></td>
+            <td><code>Task&lt;T&gt;</code></td>
+            <td><code>impl Future&lt;Output = T&gt;</code></td>
+            <td><code>std::future&lt;T&gt;</code></td>
+            <td><code>CompletableFuture&lt;T&gt;</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>Recall the parallel trio:</strong>
+        <code style="display: inline-block">asyncio.gather</code> (Python) ·
+        <code style="display: inline-block">Promise.all</code> (TypeScript) ·
+        <code style="display: inline-block">Task.WhenAll</code> (C#) ·
+        <code style="display: inline-block">CompletableFuture.allOf</code> (Java).
+      </div>
+      <div class="note warn">
+        <strong>Sequential vs parallel:</strong> two
+        <code style="display: inline-block">await sleep(1)</code> calls one after
+        another take ~2 s; <code style="display: inline-block">gather</code> /
+        <code style="display: inline-block">Promise.all</code> on two sleeps take
+        ~1 s total.
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

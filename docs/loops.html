@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loops — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 05 · Loops</span>
+    </header>
+    <main>
+      <h1><span class="emoji">🔁</span>Loops</h1>
+      <p class="subtitle">for, while, range, enumerate, break / continue.</p>
+      <div class="files">
+        <a href="../python/05_loops.py">python/05_loops.py</a>
+        <a href="../typescript/05_loops.ts">typescript/05_loops.ts</a>
+        <a href="../csharp/05_loops.cs">csharp/05_loops.cs</a>
+        <a href="../rust/05_loops.rs">rust/05_loops.rs</a>
+        <a href="../cpp/05_loops.cpp">cpp/05_loops.cpp</a>
+        <a href="../java/05_loops.java">java/05_loops.java</a>
+      </div>
+
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Count 0..n-1</td>
+            <td><code>for i in range(3):</code></td>
+            <td><code>for (let i = 0; i &lt; 3; i++) {</code></td>
+            <td><code>for (int i = 0; i &lt; 3; i++) {</code></td>
+            <td><code>for i in 0..3 {</code></td>
+            <td><code>for (int i = 0; i &lt; 3; ++i) {</code></td>
+            <td><code>for (int i = 0; i &lt; 3; i++) {</code></td>
+          </tr>
+          <tr>
+            <td class="op">Range with step</td>
+            <td><code>range(2, 11, 2)</code></td>
+            <td><code>for (let i = 2; i &lt; 11; i += 2)</code></td>
+            <td><code>for (int i = 2; i &lt; 11; i += 2)</code></td>
+            <td><code>for i in (2..11).step_by(2) {</code></td>
+            <td><code>for (int i = 2; i &lt; 11; i += 2) {</code></td>
+            <td><code>for (int i = 2; i &lt; 11; i += 2) {</code></td>
+          </tr>
+          <tr>
+            <td class="op">Over values</td>
+            <td><code>for x in items:</code></td>
+            <td><code>for (const x of items) {</code></td>
+            <td><code>foreach (var x in items) {</code></td>
+            <td><code>for x in items.iter() {</code></td>
+            <td><code>for (const auto&amp; x : items) {</code></td>
+            <td><code>for (String x : items) {</code></td>
+          </tr>
+          <tr>
+            <td class="op">Index + value</td>
+            <td><code>for i, x in enumerate(items):</code></td>
+            <td><code>for (const [i, x] of items.entries())</code></td>
+            <td><code>for (int i = 0; i &lt; items.Count; i++)</code></td>
+            <td><code>for (i, x) in items.iter().enumerate() {</code></td>
+            <td><code>for (size_t i = 0; i &lt; items.size(); ++i)</code></td>
+            <td><code>for (int i = 0; i &lt; items.size(); i++)</code></td>
+          </tr>
+          <tr>
+            <td class="op">While</td>
+            <td><code>while n &gt; 0:</code></td>
+            <td><code>while (n &gt; 0) {</code></td>
+            <td><code>while (n &gt; 0) {</code></td>
+            <td><code>while n &gt; 0 {</code></td>
+            <td><code>while (n &gt; 0) {</code></td>
+            <td><code>while (n &gt; 0) {</code></td>
+          </tr>
+          <tr>
+            <td class="op">Infinite loop</td>
+            <td><code>while True:</code></td>
+            <td><code>while (true) {</code></td>
+            <td><code>while (true) {</code></td>
+            <td><code>loop { ... break; } // unique to Rust</code></td>
+            <td><code>while (true) {</code></td>
+            <td><code>while (true) {</code></td>
+          </tr>
+          <tr>
+            <td class="op">Skip / stop</td>
+            <td><code>continue   break</code></td>
+            <td><code>continue;   break;</code></td>
+            <td><code>continue;   break;</code></td>
+            <td><code>continue;   break;</code></td>
+            <td><code>continue;   break;</code></td>
+            <td><code>continue;   break;</code></td>
+          </tr>
+          <tr>
+            <td class="op">Build a list</td>
+            <td><code>[x*x for x in range(5)]</code></td>
+            <td><code>[0,1,2,3,4].map(x =&gt; x*x)</code></td>
+            <td><code>Enumerable.Range(0,5).Select(x =&gt; x*x)</code></td>
+            <td><code>(0..5).map(|x| x*x).collect::&lt;Vec&lt;_&gt;&gt;()</code></td>
+            <td><code>std::transform(v.begin(),v.end(),...)</code></td>
+            <td><code>IntStream.range(0,5).map(x -&gt; x*x)</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>Recall:</strong> Python's
+        <code style="display: inline-block">for x in coll</code> equals
+        TypeScript's
+        <code style="display: inline-block">for (const x of coll)</code>. Python
+        replaces the C-style counter loop with
+        <code style="display: inline-block">range()</code>.
+      </div>
+      <div class="note warn">
+        <strong>Watch out:</strong> TypeScript's
+        <code style="display: inline-block">for...in</code> iterates
+        <em>keys/indexes</em>, not values — it is <em>not</em> the same as
+        Python's <code style="display: inline-block">for x in</code>. Use
+        <code style="display: inline-block">for...of</code> for values.
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

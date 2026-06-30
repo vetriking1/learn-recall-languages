@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input / Output — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 06 · Input / Output</span>
+    </header>
+    <main>
+      <h1><span class="emoji">💬</span>Console Input / Output</h1>
+      <p class="subtitle">Printing to the screen and reading user input.</p>
+      <div class="files">
+        <a href="../python/06_io.py">python/06_io.py</a>
+        <a href="../typescript/06_io.ts">typescript/06_io.ts</a>
+        <a href="../csharp/06_io.cs">csharp/06_io.cs</a>
+        <a href="../rust/06_io.rs">rust/06_io.rs</a>
+        <a href="../cpp/06_io.cpp">cpp/06_io.cpp</a>
+        <a href="../java/06_io.java">java/06_io.java</a>
+      </div>
+
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Print a line</td>
+            <td><code>print("Hello")</code></td>
+            <td><code>console.log("Hello");</code></td>
+            <td><code>Console.WriteLine("Hello");</code></td>
+            <td><code>println!("Hello");</code></td>
+            <td><code>std::cout &lt;&lt; "Hello" &lt;&lt; std::endl;</code></td>
+            <td><code>System.out.println("Hello");</code></td>
+          </tr>
+          <tr>
+            <td class="op">No trailing newline</td>
+            <td><code>print("x", end="")</code></td>
+            <td><code>process.stdout.write("x");</code></td>
+            <td><code>Console.Write("x");</code></td>
+            <td><code>print!("x");</code></td>
+            <td><code>std::cout &lt;&lt; "x";  // no endl</code></td>
+            <td><code>System.out.print("x");</code></td>
+          </tr>
+          <tr>
+            <td class="op">Formatted output</td>
+            <td><code>print(f"{name} is {age}")</code></td>
+            <td><code>console.log(`${name} is ${age}`);</code></td>
+            <td><code>Console.WriteLine($"{name} is {age}");</code></td>
+            <td><code>println!("{} is {}", name, age);</code></td>
+            <td><code>std::cout &lt;&lt; name &lt;&lt; " is " &lt;&lt; age;</code></td>
+            <td><code>System.out.printf("%s is %d%n", name, age);</code></td>
+          </tr>
+          <tr>
+            <td class="op">2 decimal places</td>
+            <td><code>f"{x:.2f}"</code></td>
+            <td><code>x.toFixed(2)</code></td>
+            <td><code>x.ToString("F2")</code></td>
+            <td><code>println!("{:.2}", x);</code></td>
+            <td><code>std::fixed &lt;&lt; std::setprecision(2) &lt;&lt; x</code></td>
+            <td><code>System.out.printf("%.2f%n", x);</code></td>
+          </tr>
+          <tr>
+            <td class="op">Read a line</td>
+            <td><code>name = input("Name: ")</code></td>
+            <td><code>rl.question("Name: ", cb)  // readline</code></td>
+            <td><code>string? name = Console.ReadLine();</code></td>
+            <td><code>io::stdin().read_line(&amp;mut buf).unwrap();</code></td>
+            <td><code>std::getline(std::cin, name);</code></td>
+            <td><code>String name = scanner.nextLine();</code></td>
+          </tr>
+          <tr>
+            <td class="op">Read a number</td>
+            <td><code>n = int(input())</code></td>
+            <td><code>const n = Number(answer);</code></td>
+            <td><code>int n = int.Parse(Console.ReadLine()!);</code></td>
+            <td><code>let n: i32 = buf.trim().parse().unwrap();</code></td>
+            <td><code>int n; std::cin &gt;&gt; n;</code></td>
+            <td><code>int n = Integer.parseInt(scanner.nextLine());</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>Recall:</strong> Both return input as a <em>string</em> — cast
+        with <code style="display: inline-block">int()</code> /
+        <code style="display: inline-block">Number()</code> for math.
+      </div>
+      <div class="note warn">
+        <strong>Big difference:</strong> Python's
+        <code style="display: inline-block">input()</code> <em>blocks</em> and
+        returns the value directly. Node's
+        <code style="display: inline-block">readline</code> is
+        <em>callback-based</em> (asynchronous) — the value arrives in a function.
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

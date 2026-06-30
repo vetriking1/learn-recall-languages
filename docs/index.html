@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AllLanguages — Learn & Recall</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">Learn & recall programming concepts side-by-side</span>
+    </header>
+
+    <main>
+      <h1><span class="emoji">📚</span>Programming concepts, side-by-side</h1>
+      <p class="subtitle">
+        Each topic compares <span class="badge py">Python</span>,
+        <span class="badge ts">TypeScript</span>,
+        <span class="badge cs">C#</span>,
+        <span class="badge rs">Rust</span>,
+        <span class="badge cpp">C++</span>, and
+        <span class="badge java">Java</span> with runnable example files.
+        Use it to <strong>learn</strong> a new concept or <strong>recall</strong>
+        the exact method name that differs between languages.
+      </p>
+
+      <h2>Basics</h2>
+      <div class="grid">
+        <a class="card" href="variables.html">
+          <div class="num">01</div>
+          <h3>Variables</h3>
+          <p>Declaration, mutability, naming, type annotations.</p>
+        </a>
+        <a class="card" href="datatypes.html">
+          <div class="num">02</div>
+          <h3>Data Types</h3>
+          <p>Primitives, type checking, conversion & casting.</p>
+        </a>
+        <a class="card" href="operators.html">
+          <div class="num">03</div>
+          <h3>Operators</h3>
+          <p>Arithmetic, comparison, logical, assignment.</p>
+        </a>
+        <a class="card" href="conditions.html">
+          <div class="num">04</div>
+          <h3>Conditions</h3>
+          <p>if / else, ternary, truthiness, switch / match.</p>
+        </a>
+        <a class="card" href="loops.html">
+          <div class="num">05</div>
+          <h3>Loops</h3>
+          <p>for, while, range, enumerate, break / continue.</p>
+        </a>
+        <a class="card" href="io.html">
+          <div class="num">06</div>
+          <h3>Input / Output</h3>
+          <p>Console output and reading user input.</p>
+        </a>
+        <a class="card" href="functions.html">
+          <div class="num">07</div>
+          <h3>Functions</h3>
+          <p>Parameters, defaults, rest/args, return, lambdas.</p>
+        </a>
+        <a class="card" href="strings.html">
+          <div class="num">08</div>
+          <h3>Strings</h3>
+          <p>Indexing, slicing, case, search, split/join, format.</p>
+          <span class="focus">★ method focus</span>
+        </a>
+        <a class="card" href="arrays.html">
+          <div class="num">09</div>
+          <h3>Arrays / Lists</h3>
+          <p>push/pop, shift/unshift, slice, map/filter, sort.</p>
+          <span class="focus">★ method focus</span>
+        </a>
+      </div>
+
+      <h2>Data Structures</h2>
+      <div class="grid">
+        <a class="card" href="data_structures.html">
+          <div class="num">15</div>
+          <h3>Data Structures</h3>
+          <p>Maps, sets, stack, queue, heap, tuples — built-in containers.</p>
+          <span class="focus">★ method focus</span>
+        </a>
+        <a class="card" href="async_await.html">
+          <div class="num">16</div>
+          <h3>Async / Await</h3>
+          <p>async def, await, gather / Promise.all, error handling.</p>
+          <span class="focus">★ concept focus</span>
+        </a>
+      </div>
+
+      <h2>Object-Oriented Programming</h2>
+      <div class="grid">
+        <a class="card" href="classes.html">
+          <div class="num">10</div>
+          <h3>Classes &amp; Objects</h3>
+          <p>State + behavior, constructors, instances.</p>
+        </a>
+        <a class="card" href="encapsulation.html">
+          <div class="num">11</div>
+          <h3>Encapsulation</h3>
+          <p>Private state, accessors, guarded invariants.</p>
+        </a>
+        <a class="card" href="inheritance.html">
+          <div class="num">12</div>
+          <h3>Inheritance</h3>
+          <p>Reuse a base, override, super/base — &amp; Rust's traits.</p>
+        </a>
+        <a class="card" href="polymorphism.html">
+          <div class="num">13</div>
+          <h3>Polymorphism</h3>
+          <p>One interface, many types; dynamic dispatch.</p>
+        </a>
+        <a class="card" href="abstraction.html">
+          <div class="num">14</div>
+          <h3>Abstraction</h3>
+          <p>Abstract classes, interfaces, traits — the contract.</p>
+        </a>
+      </div>
+
+      <h2>How to run the examples</h2>
+      <div class="cheat">
+        <p><span class="badge py">Python</span> (3.10+):</p>
+        <code>python python/08_strings.py</code>
+        <p style="margin-top: 16px">
+          <span class="badge ts">TypeScript</span> (one-time setup, then run):
+        </p>
+        <code>cd typescript &amp;&amp; npm install</code>
+        <code>npx ts-node 08_strings.ts</code>
+        <p style="margin-top: 16px">
+          <span class="badge cs">C#</span> (requires dotnet-script):
+        </p>
+        <code>dotnet tool install -g dotnet-script</code>
+        <code>dotnet script csharp/08_strings.cs</code>
+        <p style="margin-top: 16px">
+          <span class="badge rs">Rust</span> (requires rustc):
+        </p>
+        <code>rustc rust/08_strings.rs -o rust/08_strings && rust/08_strings</code>
+        <p style="margin-top: 16px">
+          <span class="badge cpp">C++</span> (requires g++):
+        </p>
+        <code>g++ -std=c++17 cpp/08_strings.cpp -o cpp/08_strings && cpp/08_strings</code>
+        <p style="margin-top: 16px">
+          <span class="badge java">Java</span> (11+, single-file launch — no compile step):
+        </p>
+        <code>java java/08_strings.java</code>
+        <p style="margin-top: 16px; color: var(--text-dim)">
+          Files that read input (06) can be fed via a pipe, e.g.
+          <code style="display: inline-block"
+            >echo "Vetri" | python python/06_io.py</code
+          >
+        </p>
+      </div>
+
+      <h2>Coming next</h2>
+      <p class="subtitle" style="margin-top: 10px">
+        All six languages now cover the basics (01–09), data structures (15),
+        async/await (16), and OOP (10–14). Next up: error handling, generics,
+        and modules. See
+        <code style="display: inline-block">AGENTS.md</code> for how this is
+        structured and extended.
+      </p>
+    </main>
+
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

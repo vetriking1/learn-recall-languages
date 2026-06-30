@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classes &amp; Objects — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 10 · Classes &amp; Objects</span>
+    </header>
+    <main>
+      <h1><span class="emoji">🏛️</span>Classes &amp; Objects</h1>
+      <p class="subtitle">Bundling state + behavior, constructing instances.</p>
+      <div class="files">
+        <a href="../python/10_classes.py">python/10_classes.py</a>
+        <a href="../typescript/10_classes.ts">typescript/10_classes.ts</a>
+        <a href="../csharp/10_classes.cs">csharp/10_classes.cs</a>
+        <a href="../rust/10_classes.rs">rust/10_classes.rs</a>
+        <a href="../cpp/10_classes.cpp">cpp/10_classes.cpp</a>
+        <a href="../java/10_classes.java">java/10_classes.java</a>
+      </div>
+
+      <div class="note warn">
+        <strong>The big split:</strong> Rust has no <code style="display:inline-block">class</code>
+        keyword at all — data goes in a <code style="display:inline-block">struct</code> and
+        behavior goes in an <code style="display:inline-block">impl</code> block. Everywhere
+        else, both live inside one <code style="display:inline-block">class</code>.
+      </div>
+
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Declare</td>
+            <td><code>class Person:</code></td>
+            <td><code>class Person { }</code></td>
+            <td><code>class Person { }</code></td>
+            <td><code>struct Person { } + impl Person { }</code></td>
+            <td><code>class Person { };</code></td>
+            <td><code>class Person { }</code></td>
+          </tr>
+          <tr>
+            <td class="op">Constructor</td>
+            <td><code>def __init__(self, …):</code></td>
+            <td><code>constructor(…) { }</code></td>
+            <td><code>public Person(…) { }</code></td>
+            <td><code>fn new(…) -&gt; Person</code></td>
+            <td><code>Person(…) : name(…) { }</code></td>
+            <td><code>Person(…) { }</code></td>
+          </tr>
+          <tr>
+            <td class="op">Instance ref</td>
+            <td><code>self (explicit param)</code></td>
+            <td><code>this</code></td>
+            <td><code>this</code></td>
+            <td><code>&amp;self / &amp;mut self</code></td>
+            <td><code>this (a pointer)</code></td>
+            <td><code>this</code></td>
+          </tr>
+          <tr>
+            <td class="op">Method</td>
+            <td><code>def greet(self):</code></td>
+            <td><code>greet(): string { }</code></td>
+            <td><code>public string Greet()</code></td>
+            <td><code>fn greet(&amp;self) -&gt; String</code></td>
+            <td><code>std::string greet() const</code></td>
+            <td><code>String greet() { }</code></td>
+          </tr>
+          <tr>
+            <td class="op">Construct</td>
+            <td><code>p = Person("V", 22)</code></td>
+            <td><code>new Person("V", 22)</code></td>
+            <td><code>new Person("V", 22)</code></td>
+            <td><code>Person::new("V", 22)</code></td>
+            <td><code>Person p("V", 22);</code></td>
+            <td><code>new Person("V", 22)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Stack object, no GC?</td>
+            <td><code>no (heap + refs)</code></td>
+            <td><code>no (heap + refs)</code></td>
+            <td><code>class = heap; struct = value</code></td>
+            <td><code>yes (values by default)</code></td>
+            <td><code>yes (Person p;)</code></td>
+            <td><code>no (objects on heap)</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>Recall:</strong> Python's instance method takes
+        <code style="display:inline-block">self</code> explicitly; the others have an
+        implicit <code style="display:inline-block">this</code> /
+        <code style="display:inline-block">&amp;self</code>. Python &amp; TS always
+        heap-allocate; C++ (always) and Rust (by default) can keep objects on the stack
+        with no garbage collector; Rust uses a <code style="display:inline-block">new</code>
+        convention function rather than a keyword.
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

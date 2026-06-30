@@ -1,0 +1,86 @@
+---
+pid: 5240
+cwd: "C:\Users\vetri\OneDrive\Desktop\Programming\AllLanguages"
+command: "cd \"C:\\Users\\vetri\\OneDrive\\Desktop\\Programming\\AllLanguages\"; foreach ($f in 01..09) { $file = \"csharp\\{0:D2}_*.cs\" -f $f; $path = Get-ChildItem $file | Select-Object -ExpandProperty Name; Write-Host \"=== $path ===\"; dotnet-script \"csharp\\$path\" 2>&1; if ($LASTEXITCODE -ne 0) { Write-Host \"FAILED: $path\" } }"
+started_at: 2026-06-28T11:07:45.752Z
+running_for_ms: 1260007  
+---
+=== 01_variables.cs ===
+Vetri 22
+20
+1 2 3 0 0 0
+2 1
+abc 5 True
+99.5
+now a string
+=== 02_datatypes.cs ===
+C:\Users\vetri\OneDrive\Desktop\Programming\AllLanguages\csharp\02_datatypes.cs(22,19): warning CS0183: The given expression is always of the provided ('bool') type
+C:\Users\vetri\OneDrive\Desktop\Programming\AllLanguages\csharp\02_datatypes.cs(15,7): error CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+FAILED: 02_datatypes.cs
+=== 03_operators.cs ===
+C:\Users\vetri\OneDrive\Desktop\Programming\AllLanguages\csharp\03_operators.cs(48,7): error CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+C:\Users\vetri\OneDrive\Desktop\Programming\AllLanguages\csharp\03_operators.cs(50,41): error CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+FAILED: 03_operators.cs
+=== 04_conditions.cs ===
+C:\Users\vetri\OneDrive\Desktop\Programming\AllLanguages\csharp\04_conditions.cs(59,5): error CS8070: Control cannot fall out of switch from final case label ('default:')
+FAILED: 04_conditions.cs
+=== 05_loops.cs ===
+0 1 2 
+2 4 6 8 10 
+apple banana cherry 
+0:apple 1:banana 2:cherry 
+3 2 1 
+0 1 2 4 5 
+[0, 1, 4, 9, 16]
+[0, 2, 4, 6, 8]
+=== 06_io.cs ===
+C:\Users\vetri\OneDrive\Desktop\Programming\AllLanguages\csharp\06_io.cs(35,7): error CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+C:\Users\vetri\OneDrive\Desktop\Programming\AllLanguages\csharp\06_io.cs(42,7): error CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+FAILED: 06_io.cs
+=== 07_functions.cs ===
+C:\Users\vetri\OneDrive\Desktop\Programming\AllLanguages\csharp\07_functions.cs(25,60): error CS0019: Operator '??' cannot be applied to operands of type 'int?' and 'string'
+FAILED: 07_functions.cs
+=== 08_strings.cs ===
+12
+H
+d
+Hello
+World
+Hello
+dlroW ,olleH
+hello, world
+HELLO, WORLD
+Hi There
+7
+True
+True
+True
+3
+Hello, Vetri
+pad
+a, b, c
+a-b-c
+000hi
+Vetri is 22
+Vetri is 22
+65
+B
+=== 09_arrays.cs ===
+10
+30
+3
+[10, 20, 30, 40]
+[10, 20, 30, 40, 50, 60]
+[5, 10, 20, 30, 40, 50, 60]
+60 [5, 10, 20, 30, 40, 50]
+5 [10, 20, 30, 40, 50]
+[10, 20, 40, 50]
+[20, 40]
+[50, 40, 20, 10]
+True
+2
+[2, 4, 6, 8]
+[2, 4]
+10
+[1, 1, 3, 4, 5, 10]
+[10, 5, 4, 3, 1, 1]

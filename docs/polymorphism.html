@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Polymorphism — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 13 · Polymorphism</span>
+    </header>
+    <main>
+      <h1><span class="emoji">🎭</span>Polymorphism</h1>
+      <p class="subtitle">One interface, many types — the right method runs.</p>
+      <div class="files">
+        <a href="../python/13_polymorphism.py">python/13_polymorphism.py</a>
+        <a href="../typescript/13_polymorphism.ts">typescript/13_polymorphism.ts</a>
+        <a href="../csharp/13_polymorphism.cs">csharp/13_polymorphism.cs</a>
+        <a href="../rust/13_polymorphism.rs">rust/13_polymorphism.rs</a>
+        <a href="../cpp/13_polymorphism.cpp">cpp/13_polymorphism.cpp</a>
+        <a href="../java/13_polymorphism.java">java/13_polymorphism.java</a>
+      </div>
+
+      <div class="note warn">
+        <strong>What does the collection hold?</strong> Dynamic dispatch needs an
+        indirection: a base reference (Python/TS/Java/C#), a base pointer
+        (<code style="display:inline-block">unique_ptr&lt;Shape&gt;</code> in C++, never by
+        value — that "slices"), or a trait object
+        (<code style="display:inline-block">Box&lt;dyn Shape&gt;</code> in Rust).
+      </div>
+
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Mixed collection</td>
+            <td><code>[Circle(2), Rect(3,4)]</code></td>
+            <td><code>Shape[]</code></td>
+            <td><code>List&lt;Shape&gt;</code></td>
+            <td><code>Vec&lt;Box&lt;dyn Shape&gt;&gt;</code></td>
+            <td><code>vector&lt;unique_ptr&lt;Shape&gt;&gt;</code></td>
+            <td><code>List&lt;Shape&gt;</code></td>
+          </tr>
+          <tr>
+            <td class="op">Dispatch call</td>
+            <td><code>s.area()</code></td>
+            <td><code>s.area()</code></td>
+            <td><code>s.Area()</code></td>
+            <td><code>s.area()</code></td>
+            <td><code>s-&gt;area()</code></td>
+            <td><code>s.area()</code></td>
+          </tr>
+          <tr>
+            <td class="op">Needs virtual?</td>
+            <td><code>no (duck typing)</code></td>
+            <td><code>no (default)</code></td>
+            <td><code>yes (virtual/override)</code></td>
+            <td><code>via trait method</code></td>
+            <td><code>yes (virtual)</code></td>
+            <td><code>no (default)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Common base required?</td>
+            <td><code>no (structural / duck)</code></td>
+            <td><code>no (structural)</code></td>
+            <td><code>yes (nominal)</code></td>
+            <td><code>shared trait</code></td>
+            <td><code>yes (nominal)</code></td>
+            <td><code>yes (nominal)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Dispatch kind</td>
+            <td><code>runtime</code></td>
+            <td><code>runtime</code></td>
+            <td><code>runtime (vtable)</code></td>
+            <td><code>static (generics) or dyn</code></td>
+            <td><code>runtime (vtable)</code></td>
+            <td><code>runtime (vtable)</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>Recall:</strong> Python and TypeScript don't need a shared base at all —
+        any object with the right methods works (duck / structural typing). C#, C++ and
+        Java are nominal: the type must declare it extends/implements the base. Rust is
+        unique in offering a zero-cost <em>static</em> option (generics) alongside runtime
+        <code style="display:inline-block">dyn</code> dispatch.
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

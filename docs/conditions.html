@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conditions — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 04 · Conditions</span>
+    </header>
+    <main>
+      <h1><span class="emoji">🔀</span>Conditions</h1>
+      <p class="subtitle">if / else, ternary, truthiness, switch / match.</p>
+      <div class="files">
+        <a href="../python/04_conditions.py">python/04_conditions.py</a>
+        <a href="../typescript/04_conditions.ts">typescript/04_conditions.ts</a>
+        <a href="../csharp/04_conditions.cs">csharp/04_conditions.cs</a>
+        <a href="../rust/04_conditions.rs">rust/04_conditions.rs</a>
+        <a href="../cpp/04_conditions.cpp">cpp/04_conditions.cpp</a>
+        <a href="../java/04_conditions.java">java/04_conditions.java</a>
+      </div>
+
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">if / else if / else</td>
+            <td>
+<code>if x &lt; 13:
+    ...
+elif x &lt; 18:
+    ...
+else:
+    ...</code>
+            </td>
+            <td>
+<code>if (x &lt; 13) {
+  ...
+} else if (x &lt; 18) {
+  ...
+} else {
+  ...
+}</code>
+            </td>
+            <td>
+<code>if (x &lt; 13) {
+  ...
+} else if (x &lt; 18) {
+  ...
+} else {
+  ...
+}</code>
+            </td>
+            <td>
+<code>if x &lt; 13 {
+  ...
+} else if x &lt; 18 {
+  ...
+} else {
+  ...
+}</code>
+            </td>
+            <td>
+<code>if (x &lt; 13) {
+  ...
+} else if (x &lt; 18) {
+  ...
+} else {
+  ...
+}</code>
+            </td>
+            <td>
+<code>if (x &lt; 13) {
+  ...
+} else if (x &lt; 18) {
+  ...
+} else {
+  ...
+}</code>
+            </td>
+          </tr>
+          <tr>
+            <td class="op">Ternary / if-expr</td>
+            <td><code>"pass" if ok else "fail"</code></td>
+            <td><code>ok ? "pass" : "fail"</code></td>
+            <td><code>ok ? "pass" : "fail"</code></td>
+            <td><code>if ok { "pass" } else { "fail" }</code></td>
+            <td><code>ok ? "pass" : "fail"</code></td>
+            <td><code>ok ? "pass" : "fail"</code></td>
+          </tr>
+          <tr>
+            <td class="op">Switch / match</td>
+            <td>
+<code>match cmd:
+    case "start":
+        ...
+    case _:
+        ...</code>
+            </td>
+            <td>
+<code>switch (cmd) {
+  case "start":
+    ...
+    break;
+  default:
+    ...
+}</code>
+            </td>
+            <td>
+<code>switch (cmd) {
+  case "start":
+    ...
+    break; // required!
+  default:
+    ...
+}</code>
+            </td>
+            <td>
+<code>match cmd {
+  "start" =&gt; ...,
+  "stop"  =&gt; ...,
+  _       =&gt; ..., // no break needed
+}</code>
+            </td>
+            <td>
+<code>switch (cmd) {
+  case 'a': ...
+    break; // required — fall-through!
+  default: ...
+}</code>
+            </td>
+            <td>
+<code>switch (cmd) {
+  case "start" -&gt; ...; // arrow: no break
+  default -&gt; ...;
+}</code>
+            </td>
+          </tr>
+          <tr>
+            <td class="op">Truthiness</td>
+            <td><code>if x:  # 0/""/[] are falsy</code></td>
+            <td><code>if (x)  // 0/"" falsy; [] truthy!</code></td>
+            <td><code>// must be explicit bool — no implicit</code></td>
+            <td><code>// must be bool — no implicit (like C#)</code></td>
+            <td><code>// 0/nullptr are falsy; use !s.empty()</code></td>
+            <td><code>// must be boolean — no implicit (like C#)</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>Recall:</strong> Python uses indentation — no
+        <code style="display: inline-block">( )</code> around the test, no
+        <code style="display: inline-block">{ }</code> block. The ternary word
+        order is reversed:
+        <code style="display: inline-block">a if cond else b</code> vs
+        <code style="display: inline-block">cond ? a : b</code>.
+      </div>
+      <div class="note warn">
+        <strong>Truthiness trap:</strong> empty
+        <code style="display: inline-block">[]</code> and
+        <code style="display: inline-block">{}</code> are <em>falsy</em> in
+        Python but <em>truthy</em> in TypeScript. Check
+        <code style="display: inline-block">len(x) == 0</code> /
+        <code style="display: inline-block">x.length === 0</code> to be explicit.
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

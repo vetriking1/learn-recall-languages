@@ -1,0 +1,27 @@
+---
+pid: 34540
+cwd: "C:\Users\vetri\OneDrive\Desktop\Programming\AllLanguages"
+command: "cd \"C:\\Users\\vetri\\OneDrive\\Desktop\\Programming\\AllLanguages\" && npx ts-node typescript/15_data_structures.ts 2>&1"
+started_at: 2026-06-30T09:21:14.915Z
+running_for_ms: 45008    
+---
+npm warn exec The following package was not found and will be installed: ts-node@10.9.2
+C:\Users\vetri\AppData\Local\npm-cache\_npx\1bf7c3c15bf47d04\node_modules\ts-node\src\index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+typescript/15_data_structures.ts(34,77): error TS1005: ')' expected.
+typescript/15_data_structures.ts(35,59): error TS1005: ')' expected.
+
+    at createTSError (C:\Users\vetri\AppData\Local\npm-cache\_npx\1bf7c3c15bf47d04\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (C:\Users\vetri\AppData\Local\npm-cache\_npx\1bf7c3c15bf47d04\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (C:\Users\vetri\AppData\Local\npm-cache\_npx\1bf7c3c15bf47d04\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (C:\Users\vetri\AppData\Local\npm-cache\_npx\1bf7c3c15bf47d04\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (C:\Users\vetri\AppData\Local\npm-cache\_npx\1bf7c3c15bf47d04\node_modules\ts-node\src\index.ts:1617:30)
+    at node:internal/modules/cjs/loader:1689:10
+    at Object.require.extensions.<computed> [as .ts] (C:\Users\vetri\AppData\Local\npm-cache\_npx\1bf7c3c15bf47d04\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14) {
+  diagnosticCodes: [ 1005, 1005 ]
+}

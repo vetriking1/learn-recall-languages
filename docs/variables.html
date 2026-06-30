@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variables — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 01 · Variables</span>
+    </header>
+    <main>
+      <h1><span class="emoji">📦</span>Variables</h1>
+      <p class="subtitle">Declaring, reassigning, and annotating values.</p>
+      <div class="files">
+        <a href="../python/01_variables.py">python/01_variables.py</a>
+        <a href="../typescript/01_variables.ts">typescript/01_variables.ts</a>
+        <a href="../csharp/01_variables.cs">csharp/01_variables.cs</a>
+        <a href="../rust/01_variables.rs">rust/01_variables.rs</a>
+        <a href="../cpp/01_variables.cpp">cpp/01_variables.cpp</a>
+        <a href="../java/01_variables.java">java/01_variables.java</a>
+      </div>
+
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Declare</td>
+            <td><code>name = "Vetri"</code></td>
+            <td><code>let name = "Vetri";</code></td>
+            <td><code>var name = "Vetri";</code></td>
+            <td><code>let name = "Vetri";</code></td>
+            <td><code>auto name = "Vetri";</code></td>
+            <td><code>var name = "Vetri";</code></td>
+          </tr>
+          <tr>
+            <td class="op">Constant</td>
+            <td><code>PI = 3.14  # convention only</code></td>
+            <td><code>const PI = 3.14;</code></td>
+            <td><code>const double PI = 3.14;</code></td>
+            <td><code>const PI: f64 = 3.14; // needs type</code></td>
+            <td><code>constexpr double PI = 3.14;</code></td>
+            <td><code>final double PI = 3.14;</code></td>
+          </tr>
+          <tr>
+            <td class="op">Mutable</td>
+            <td><code>x = 10; x = 20  # always mutable</code></td>
+            <td><code>let x = 10; x = 20;</code></td>
+            <td><code>int x = 10; x = 20;</code></td>
+            <td><code>let mut x = 10; x = 20; // mut required</code></td>
+            <td><code>int x = 10; x = 20; // mutable by default</code></td>
+            <td><code>int x = 10; x = 20; // mutable by default</code></td>
+          </tr>
+          <tr>
+            <td class="op">Type annotation</td>
+            <td><code>count: int = 5</code></td>
+            <td><code>let count: number = 5;</code></td>
+            <td><code>int count = 5;</code></td>
+            <td><code>let count: i32 = 5;</code></td>
+            <td><code>int count = 5;</code></td>
+            <td><code>int count = 5;</code></td>
+          </tr>
+          <tr>
+            <td class="op">Multiple assign</td>
+            <td><code>x, y, z = 1, 2, 3</code></td>
+            <td><code>let [x, y, z] = [1, 2, 3];</code></td>
+            <td><code>(int x, int y, int z) = (1, 2, 3);</code></td>
+            <td><code>let (x, y, z) = (1, 2, 3);</code></td>
+            <td><code>auto [x, y, z] = tuple{1, 2, 3}; // C++17</code></td>
+            <td><code>int x = 1, y = 2, z = 3;</code></td>
+          </tr>
+          <tr>
+            <td class="op">Swap</td>
+            <td><code>x, y = y, x</code></td>
+            <td><code>[x, y] = [y, x];</code></td>
+            <td><code>(x, y) = (y, x);</code></td>
+            <td><code>(x, y) = (y, x);</code></td>
+            <td><code>std::swap(x, y);</code></td>
+            <td><code>int t = x; x = y; y = t; // temp var</code></td>
+          </tr>
+          <tr>
+            <td class="op">Naming convention</td>
+            <td><code>total_price  # snake_case</code></td>
+            <td><code>totalPrice   // camelCase</code></td>
+            <td><code>totalPrice   // camelCase (locals)</code></td>
+            <td><code>total_price  // snake_case (enforced)</code></td>
+            <td><code>total_price  // snake_case (convention)</code></td>
+            <td><code>totalPrice   // camelCase</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>Key difference:</strong> Python has no declaration keyword and no
+        real constant (UPPERCASE is just convention). TypeScript uses
+        <code style="display: inline-block">const</code> by default and
+        <code style="display: inline-block">let</code> when you need to reassign.
+      </div>
+      <div class="note warn">
+        <strong>Watch out:</strong> Python is dynamically typed — a variable can
+        be rebound to a different type. TypeScript locks the type once inferred
+        (<code style="display: inline-block">let n = 5; n = "x";</code> is an
+        error).
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

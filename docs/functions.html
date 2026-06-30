@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functions — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 07 · Functions</span>
+    </header>
+    <main>
+      <h1><span class="emoji">🧩</span>Functions</h1>
+      <p class="subtitle">Parameters, defaults, variadics, return, lambdas.</p>
+      <div class="files">
+        <a href="../python/07_functions.py">python/07_functions.py</a>
+        <a href="../typescript/07_functions.ts">typescript/07_functions.ts</a>
+        <a href="../csharp/07_functions.cs">csharp/07_functions.cs</a>
+        <a href="../rust/07_functions.rs">rust/07_functions.rs</a>
+        <a href="../cpp/07_functions.cpp">cpp/07_functions.cpp</a>
+        <a href="../java/07_functions.java">java/07_functions.java</a>
+      </div>
+
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Define</td>
+            <td>
+<code>def add(a, b):
+    return a + b</code>
+            </td>
+            <td>
+<code>function add(a: number, b: number) {
+  return a + b;
+}</code>
+            </td>
+            <td>
+<code>int Add(int a, int b) =&gt; a + b;</code>
+            </td>
+            <td>
+<code>fn add(a: i32, b: i32) -&gt; i32 {
+  a + b
+}</code>
+            </td>
+            <td>
+<code>int add(int a, int b) {
+  return a + b;
+}</code>
+            </td>
+            <td>
+<code>static int add(int a, int b) {
+  return a + b;
+}</code>
+            </td>
+          </tr>
+          <tr>
+            <td class="op">Anonymous / closure</td>
+            <td><code>square = lambda x: x * x</code></td>
+            <td><code>const square = (x) =&gt; x * x;</code></td>
+            <td><code>Func&lt;int,int&gt; square = x =&gt; x * x;</code></td>
+            <td><code>let square = |x: i32| x * x;</code></td>
+            <td><code>auto square = [](int x) { return x*x; };</code></td>
+            <td><code>IntUnaryOperator square = x -&gt; x * x;</code></td>
+          </tr>
+          <tr>
+            <td class="op">Default param</td>
+            <td><code>def power(b, exp=2):</code></td>
+            <td><code>function power(b, exp = 2) {</code></td>
+            <td><code>int Power(int b, int exp = 2) =&gt; ...</code></td>
+            <td><code>// no defaults — use Option&lt;T&gt; or overload</code></td>
+            <td><code>int power(int b, int exp = 2) { ... }</code></td>
+            <td><code>// no defaults — use overloading</code></td>
+          </tr>
+          <tr>
+            <td class="op">Variadic args</td>
+            <td><code>def total(*nums):</code></td>
+            <td><code>function total(...nums: number[]) {</code></td>
+            <td><code>int Total(params int[] nums) =&gt; ...</code></td>
+            <td><code>fn total(nums: &amp;[i32]) -&gt; i32 { ... }</code></td>
+            <td><code>int total(std::initializer_list&lt;int&gt; n)</code></td>
+            <td><code>int total(int... nums) { ... }</code></td>
+          </tr>
+          <tr>
+            <td class="op">Optional param</td>
+            <td><code>def f(x=None):</code></td>
+            <td><code>function f(x?: number) {</code></td>
+            <td><code>void F(int? x = null) {</code></td>
+            <td><code>fn f(x: Option&lt;i32&gt;) {</code></td>
+            <td><code>// use overloading or default args</code></td>
+            <td><code>// use overloading (or Optional&lt;T&gt;)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Multiple returns</td>
+            <td><code>return min(x), max(x)  # tuple</code></td>
+            <td><code>return [Math.min(...x), Math.max(...x)];</code></td>
+            <td><code>(int low, int high) MinMax(...) =&gt; (...)</code></td>
+            <td><code>fn min_max(v: &amp;[i32]) -&gt; (i32, i32) { ... }</code></td>
+            <td><code>std::pair&lt;int,int&gt; min_max(...) { ... }</code></td>
+            <td><code>int[] minMax(...) { return new int[]{lo,hi}; }</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>Recall:</strong>
+        <code style="display: inline-block">def f(x):</code> ↔
+        <code style="display: inline-block">function f(x) {}</code>, and
+        <code style="display: inline-block">lambda x: x*x</code> ↔
+        <code style="display: inline-block">(x) =&gt; x*x</code>. Python returns
+        a real tuple for "multiple values"; TypeScript returns an array or
+        object.
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

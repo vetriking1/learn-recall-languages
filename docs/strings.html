@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strings — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 08 · Strings ★</span>
+    </header>
+    <main>
+      <h1><span class="emoji">🔤</span>Strings <span class="card"><span class="focus" style="font-size:0.7rem;">★ method focus</span></span></h1>
+      <p class="subtitle">
+        The method names differ the most here — this is the recall sheet.
+      </p>
+      <div class="files">
+        <a href="../python/08_strings.py">python/08_strings.py</a>
+        <a href="../typescript/08_strings.ts">typescript/08_strings.ts</a>
+        <a href="../csharp/08_strings.cs">csharp/08_strings.cs</a>
+        <a href="../rust/08_strings.rs">rust/08_strings.rs</a>
+        <a href="../cpp/08_strings.cpp">cpp/08_strings.cpp</a>
+        <a href="../java/08_strings.java">java/08_strings.java</a>
+      </div>
+
+      <div class="note warn">
+        <strong>The classic gotcha:</strong> length is
+        <code style="display: inline-block">len(s)</code> in Python,
+        <code style="display: inline-block">s.length</code> in TypeScript,
+        <code style="display: inline-block">s.Length</code> (capital L) in C#,
+        <code style="display: inline-block">s.len()</code> (bytes) or <code style="display: inline-block">s.chars().count()</code> (Unicode) in Rust, and
+        <code style="display: inline-block">s.length()</code> (a method) in Java.
+      </div>
+
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Length</td>
+            <td><code>len(s)</code></td>
+            <td><code>s.length</code></td>
+            <td><code>s.Length</code></td>
+            <td><code>s.len()  // bytes; .chars().count() for chars</code></td>
+            <td><code>s.size()  // or s.length()</code></td>
+            <td><code>s.length()  // a method</code></td>
+          </tr>
+          <tr>
+            <td class="op">Char at index</td>
+            <td><code>s[0]</code></td>
+            <td><code>s[0]  /  s.charAt(0)</code></td>
+            <td><code>s[0]</code></td>
+            <td><code>s.chars().nth(0)  // no s[0] for chars</code></td>
+            <td><code>s[0]  // char</code></td>
+            <td><code>s.charAt(0)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Last char</td>
+            <td><code>s[-1]</code></td>
+            <td><code>s.at(-1)  /  s[s.length-1]</code></td>
+            <td><code>s[^1]</code></td>
+            <td><code>s.chars().last()</code></td>
+            <td><code>s.back()</code></td>
+            <td><code>s.charAt(s.length()-1)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Substring / slice</td>
+            <td><code>s[0:5]</code></td>
+            <td><code>s.slice(0, 5)</code></td>
+            <td><code>s[0..5]</code></td>
+            <td><code>&amp;s[0..5]  // byte indices!</code></td>
+            <td><code>s.substr(0, 5)  // (start, length)</code></td>
+            <td><code>s.substring(0, 5)  // (start, end)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Reverse</td>
+            <td><code>s[::-1]</code></td>
+            <td><code>s.split("").reverse().join("")</code></td>
+            <td><code>new string(s.Reverse().ToArray())</code></td>
+            <td><code>s.chars().rev().collect::&lt;String&gt;()</code></td>
+            <td><code>std::string r(s.rbegin(), s.rend())</code></td>
+            <td><code>new StringBuilder(s).reverse().toString()</code></td>
+          </tr>
+          <tr>
+            <td class="op">Lowercase</td>
+            <td><code>s.lower()</code></td>
+            <td><code>s.toLowerCase()</code></td>
+            <td><code>s.ToLower()</code></td>
+            <td><code>s.to_lowercase()</code></td>
+            <td><code>std::transform(..., ::tolower)  // manual</code></td>
+            <td><code>s.toLowerCase()</code></td>
+          </tr>
+          <tr>
+            <td class="op">Uppercase</td>
+            <td><code>s.upper()</code></td>
+            <td><code>s.toUpperCase()</code></td>
+            <td><code>s.ToUpper()</code></td>
+            <td><code>s.to_uppercase()</code></td>
+            <td><code>std::transform(..., ::toupper)  // manual</code></td>
+            <td><code>s.toUpperCase()</code></td>
+          </tr>
+          <tr>
+            <td class="op">Find index</td>
+            <td><code>s.find("x")   # -1 if missing</code></td>
+            <td><code>s.indexOf("x")  // -1 if missing</code></td>
+            <td><code>s.IndexOf("x")  // -1 if missing</code></td>
+            <td><code>s.find("x")  // returns Option&lt;usize&gt;</code></td>
+            <td><code>s.find("x")  // npos if missing</code></td>
+            <td><code>s.indexOf("x")  // -1 if missing</code></td>
+          </tr>
+          <tr>
+            <td class="op">Contains?</td>
+            <td><code>"x" in s</code></td>
+            <td><code>s.includes("x")</code></td>
+            <td><code>s.Contains("x")</code></td>
+            <td><code>s.contains("x")</code></td>
+            <td><code>s.find("x") != std::string::npos</code></td>
+            <td><code>s.contains("x")</code></td>
+          </tr>
+          <tr>
+            <td class="op">Starts / ends with</td>
+            <td><code>s.startswith(x) / s.endswith(x)</code></td>
+            <td><code>s.startsWith(x) / s.endsWith(x)</code></td>
+            <td><code>s.StartsWith(x) / s.EndsWith(x)</code></td>
+            <td><code>s.starts_with(x) / s.ends_with(x)</code></td>
+            <td><code>s.starts_with(x) / s.ends_with(x) // C++20</code></td>
+            <td><code>s.startsWith(x) / s.endsWith(x)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Replace</td>
+            <td><code>s.replace(a, b)</code></td>
+            <td><code>s.replaceAll(a, b)</code></td>
+            <td><code>s.Replace(a, b)</code></td>
+            <td><code>s.replace(a, b)</code></td>
+            <td><code>// loop: find pos then s.replace(pos, len, b)</code></td>
+            <td><code>s.replace(a, b)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Trim whitespace</td>
+            <td><code>s.strip()</code></td>
+            <td><code>s.trim()</code></td>
+            <td><code>s.Trim()</code></td>
+            <td><code>s.trim()</code></td>
+            <td><code>// manual erase with isspace lambda</code></td>
+            <td><code>s.strip()  // Java 11+ (or s.trim())</code></td>
+          </tr>
+          <tr>
+            <td class="op">Split into list</td>
+            <td><code>s.split(",")</code></td>
+            <td><code>s.split(",")</code></td>
+            <td><code>s.Split(",")</code></td>
+            <td><code>s.split(',').collect::&lt;Vec&lt;_&gt;&gt;()</code></td>
+            <td><code>getline(ss, item, ',')  // via stringstream</code></td>
+            <td><code>s.split(",")  // returns String[]</code></td>
+          </tr>
+          <tr>
+            <td class="op">Join list → string</td>
+            <td><code>"-".join(parts)</code></td>
+            <td><code>parts.join("-")</code></td>
+            <td><code>string.Join("-", parts)</code></td>
+            <td><code>parts.join("-")</code></td>
+            <td><code>// loop with ostringstream</code></td>
+            <td><code>String.join("-", parts)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Repeat</td>
+            <td><code>"hi" * 3</code></td>
+            <td><code>"hi".repeat(3)</code></td>
+            <td><code>string.Concat(Enumerable.Repeat("hi", 3))</code></td>
+            <td><code>"hi".repeat(3)</code></td>
+            <td><code>// loop: s += "hi" three times</code></td>
+            <td><code>"hi".repeat(3)  // Java 11+</code></td>
+          </tr>
+          <tr>
+            <td class="op">Interpolate</td>
+            <td><code>f"{name} is {age}"</code></td>
+            <td><code>`${name} is ${age}`</code></td>
+            <td><code>$"{name} is {age}"</code></td>
+            <td><code>format!("{} is {}", name, age)</code></td>
+            <td><code>name + " is " + std::to_string(age)</code></td>
+            <td><code>String.format("%s is %d", name, age)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Char → code</td>
+            <td><code>ord("A")   # 65</code></td>
+            <td><code>"A".charCodeAt(0)  // 65</code></td>
+            <td><code>(int)'A'  // 65</code></td>
+            <td><code>'A' as u32  // 65</code></td>
+            <td><code>(int)'A'  // 65</code></td>
+            <td><code>(int) 'A'  // 65</code></td>
+          </tr>
+          <tr>
+            <td class="op">Code → char</td>
+            <td><code>chr(66)    # B</code></td>
+            <td><code>String.fromCharCode(66)  // B</code></td>
+            <td><code>(char)66  // B</code></td>
+            <td><code>char::from(66u8)  // B</code></td>
+            <td><code>(char)66  // B</code></td>
+            <td><code>(char) 66  // B</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>Recall:</strong> strings are <em>immutable</em> in every language
+        here — each "modifying" method returns a <em>new</em> string. Length is a
+        property in JS/C# but a <em>method</em> in Java
+        (<code style="display: inline-block">s.length()</code>) and Python
+        (<code style="display: inline-block">len(s)</code>). Only Python/C#/Rust
+        support negative or from-end indexing.
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

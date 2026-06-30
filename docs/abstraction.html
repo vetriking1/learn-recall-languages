@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abstraction — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 14 · Abstraction</span>
+    </header>
+    <main>
+      <h1><span class="emoji">📐</span>Abstraction</h1>
+      <p class="subtitle">Defining a contract (what), leaving out the how.</p>
+      <div class="files">
+        <a href="../python/14_abstraction.py">python/14_abstraction.py</a>
+        <a href="../typescript/14_abstraction.ts">typescript/14_abstraction.ts</a>
+        <a href="../csharp/14_abstraction.cs">csharp/14_abstraction.cs</a>
+        <a href="../rust/14_abstraction.rs">rust/14_abstraction.rs</a>
+        <a href="../cpp/14_abstraction.cpp">cpp/14_abstraction.cpp</a>
+        <a href="../java/14_abstraction.java">java/14_abstraction.java</a>
+      </div>
+
+      <div class="note warn">
+        <strong>Two tools, one idea:</strong> an <em>abstract class</em> (can hold state +
+        some concrete code) vs an <em>interface / trait</em> (pure contract). You can never
+        instantiate either directly — a concrete type must fill in the missing methods.
+      </div>
+
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Abstract type</td>
+            <td><code>class Shape(ABC):</code></td>
+            <td><code>abstract class Shape</code></td>
+            <td><code>abstract class Shape</code></td>
+            <td><code>trait Shape</code></td>
+            <td><code>class Shape (has =0)</code></td>
+            <td><code>abstract class Shape</code></td>
+          </tr>
+          <tr>
+            <td class="op">Required method</td>
+            <td><code>@abstractmethod def area</code></td>
+            <td><code>abstract area(): number;</code></td>
+            <td><code>public abstract double Area();</code></td>
+            <td><code>fn area(&amp;self) -&gt; f64;</code></td>
+            <td><code>virtual double area() const = 0;</code></td>
+            <td><code>abstract double area();</code></td>
+          </tr>
+          <tr>
+            <td class="op">Shared concrete method</td>
+            <td><code>def describe(self):</code></td>
+            <td><code>describe() { … }</code></td>
+            <td><code>public string Describe()</code></td>
+            <td><code>fn describe(&amp;self) { … } (default)</code></td>
+            <td><code>std::string describe() const</code></td>
+            <td><code>String describe() { … }</code></td>
+          </tr>
+          <tr>
+            <td class="op">Instantiate base?</td>
+            <td><code>TypeError at runtime</code></td>
+            <td><code>compile error</code></td>
+            <td><code>compile error</code></td>
+            <td><code>compile error (not a type)</code></td>
+            <td><code>compile error</code></td>
+            <td><code>compile error</code></td>
+          </tr>
+          <tr>
+            <td class="op">Pure-contract option</td>
+            <td><code>Protocol / ABC</code></td>
+            <td><code>interface</code></td>
+            <td><code>interface</code></td>
+            <td><code>trait (this is it)</code></td>
+            <td><code>all-pure-virtual class</code></td>
+            <td><code>interface</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>Recall:</strong> C++ has no <code style="display:inline-block">abstract</code>
+        keyword — one pure-virtual method (<code style="display:inline-block">= 0</code>)
+        makes the class abstract. Rust folds "interface" and "abstract class with shared
+        code" into a single concept, the <code style="display:inline-block">trait</code>
+        (required methods + optional defaults). Python enforces it at runtime; the
+        statically-typed languages catch it at compile time.
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

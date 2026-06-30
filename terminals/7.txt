@@ -1,0 +1,7 @@
+---
+pid: 17236
+cwd: "C:\Users\vetri\OneDrive\Desktop\Programming\AllLanguages"
+command: "& \"C:\\Users\\vetri\\AppData\\Local\\Microsoft\\WinGet\\Packages\\BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\mingw64\\bin\\g++.exe\" -std=c++17 cpp/16_async_await.cpp -o cpp/16_async_await.exe"
+started_at: 2026-06-30T09:34:05.881Z
+running_for_ms: 265008   
+---

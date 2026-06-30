@@ -1,0 +1,7 @@
+---
+pid: 10996
+cwd: "C:\Users\vetri\OneDrive\Desktop\Programming\AllLanguages"
+command: ".\\rust\\01_variables 2>&1"
+started_at: 2026-06-29T06:28:19.592Z
+running_for_ms: 7540011  
+---

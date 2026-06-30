@@ -1,0 +1,22 @@
+{
+  "name": "alllanguages-typescript",
+  "version": "1.0.0",
+  "description": "TypeScript basics for the multi-language learning workspace",
+  "private": true,
+  "scripts": {
+    "variables": "ts-node 01_variables.ts",
+    "datatypes": "ts-node 02_datatypes.ts",
+    "operators": "ts-node 03_operators.ts",
+    "conditions": "ts-node 04_conditions.ts",
+    "loops": "ts-node 05_loops.ts",
+    "io": "ts-node 06_io.ts",
+    "functions": "ts-node 07_functions.ts",
+    "strings": "ts-node 08_strings.ts",
+    "arrays": "ts-node 09_arrays.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.0"
+  }
+}
