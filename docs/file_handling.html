@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Handling — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 23 · File Handling ★</span>
+    </header>
+    <main>
+      <h1><span class="emoji">📁</span>File Handling <span class="card"><span class="focus" style="font-size:0.7rem;">★ method focus</span></span></h1>
+      <p class="subtitle">
+        Read, write, append, check existence, count lines, delete — the recall
+        sheet for filesystem I/O.
+      </p>
+      <div class="files">
+        <a href="../python/23_file_handling.py">python/23_file_handling.py</a>
+        <a href="../typescript/23_file_handling.ts">typescript/23_file_handling.ts</a>
+        <a href="../csharp/23_file_handling.cs">csharp/23_file_handling.cs</a>
+        <a href="../rust/23_file_handling.rs">rust/23_file_handling.rs</a>
+        <a href="../cpp/23_file_handling.cpp">cpp/23_file_handling.cpp</a>
+        <a href="../java/23_file_handling.java">java/23_file_handling.java</a>
+      </div>
+
+      <div class="note warn">
+        <strong>Demo file:</strong> each runnable script writes
+        <code style="display: inline-block">_alllangs_demo.txt</code> (temp or
+        repo root), then deletes it. The file is gitignored.
+      </div>
+
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Write text</td>
+            <td><code>open(p,"w").write(s)</code></td>
+            <td><code>writeFileSync(p, s)</code></td>
+            <td><code>File.WriteAllText(p, s)</code></td>
+            <td><code>fs::write(p, s)</code></td>
+            <td><code>ofstream f(p); f &lt;&lt; s</code></td>
+            <td><code>Files.writeString(p, s)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Read text</td>
+            <td><code>open(p).read()</code></td>
+            <td><code>readFileSync(p,"utf8")</code></td>
+            <td><code>File.ReadAllText(p)</code></td>
+            <td><code>fs::read_to_string(p)?</code></td>
+            <td><code>ifstream + getline</code></td>
+            <td><code>Files.readString(p)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Append</td>
+            <td><code>open(p,"a").write(s)</code></td>
+            <td><code>appendFileSync(p, s)</code></td>
+            <td><code>File.AppendAllText(p,s)</code></td>
+            <td><code>OpenOptions::append()</code></td>
+            <td><code>fstream app; ios::app</code></td>
+            <td><code>Files.writeString(p,s, APPEND)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Exists?</td>
+            <td><code>Path(p).exists()</code></td>
+            <td><code>existsSync(p)</code></td>
+            <td><code>File.Exists(p)</code></td>
+            <td><code>p.exists()</code></td>
+            <td><code>ifstream f(p); f.good()</code></td>
+            <td><code>Files.exists(p)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Delete</td>
+            <td><code>Path(p).unlink()</code></td>
+            <td><code>unlinkSync(p)</code></td>
+            <td><code>File.Delete(p)</code></td>
+            <td><code>fs::remove_file(p)</code></td>
+            <td><code>std::remove(p.c_str())</code></td>
+            <td><code>Files.delete(p)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Path join</td>
+            <td><code>Path(a)/b</code></td>
+            <td><code>path.join(a, b)</code></td>
+            <td><code>Path.Combine(a, b)</code></td>
+            <td><code>path.join(a)</code></td>
+            <td><code>a + "/" + b</code></td>
+            <td><code>Paths.get(a, b)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Temp directory</td>
+            <td><code>tempfile.gettempdir()</code></td>
+            <td><code>os.tmpdir()</code></td>
+            <td><code>Path.GetTempPath()</code></td>
+            <td><code>env::temp_dir()</code></td>
+            <td><code>std::tmpnam / env</code></td>
+            <td><code>System.getProperty("java.io.tmpdir")</code></td>
+          </tr>
+          <tr>
+            <td class="op">With / auto-close</td>
+            <td><code>with open(p) as f:</code></td>
+            <td><code>fs promises / sync</code></td>
+            <td><code>using var sr = ...</code></td>
+            <td><code>File::open()? + drop</code></td>
+            <td><code>RAII fstream dtor</code></td>
+            <td><code>try (Stream s = ...)</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>Recall:</strong> Python
+        <code style="display: inline-block">open(path, "r"|"w"|"a")</code> ·
+        Node <code style="display: inline-block">fs.readFileSync</code> ·
+        C# <code style="display: inline-block">File.ReadAllText</code> ·
+        Rust <code style="display: inline-block">fs::read_to_string</code> ·
+        C++ <code style="display: inline-block">fstream</code> ·
+        Java <code style="display: inline-block">Files.readString</code>.
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

@@ -77,6 +77,22 @@ Multithreading (spawn, join, mutex) and multiprocessing (separate child process)
 
 Six idioms per language that don't map 1:1 across the grid (comprehensions, LINQ, ownership, etc.).
 
+### Custom Data Structures (22)
+
+| #  | Topic                   | Python                                  | TypeScript                                  | C#                                       | Rust                                     | C++                                      | Java                                      | Visual                              |
+|----|-------------------------|-----------------------------------------|---------------------------------------------|------------------------------------------|------------------------------------------|------------------------------------------|-------------------------------------------|-------------------------------------|
+| 22 | Custom Data Structures ★| `python/22_custom_data_structures.py`   | `typescript/22_custom_data_structures.ts`   | `csharp/22_custom_data_structures.cs`    | `rust/22_custom_data_structures.rs`      | `cpp/22_custom_data_structures.cpp`      | `java/22_custom_data_structures.java`     | `docs/custom_data_structures.html`  |
+
+Hand-rolled linked lists, binary tree (in/pre/postorder), graph BFS & DFS.
+
+### File Handling (23)
+
+| #  | Topic            | Python                        | TypeScript                        | C#                         | Rust                       | C++                        | Java                        | Visual                    |
+|----|------------------|-------------------------------|-----------------------------------|----------------------------|----------------------------|----------------------------|-----------------------------|---------------------------|
+| 23 | File Handling ★  | `python/23_file_handling.py`  | `typescript/23_file_handling.ts`  | `csharp/23_file_handling.cs`| `rust/23_file_handling.rs` | `cpp/23_file_handling.cpp` | `java/23_file_handling.java`| `docs/file_handling.html` |
+
+Read, write, append, exists, line count, delete — demo file cleaned up after run.
+
 ### Object-Oriented Programming (10–14)
 
 | #  | Topic         | Python                       | TypeScript                       | C#                            | Rust                        | C++                         | Java                          | Visual                     |
@@ -142,8 +158,14 @@ java java/08_strings.java
 printf "Vetri\n5\n" | java java/06_io.java
 ```
 
-**The visual comparison** — just open `docs/index.html` in any browser
-(double-click; no build step).
+**The visual comparison** — open `docs/index.html` in any browser (no build step).
+
+**Language guides** (no runnable files — reference only):
+
+| Guide | Page |
+|-------|------|
+| Why these languages, best for / weak at, pick by goal | `docs/language_comparison.html` |
+| Popular libraries & frameworks per ecosystem | `docs/libraries_frameworks.html` |
 
 **Practice problems** — classic exercises (arrays, strings, numbers,
 patterns, algorithms, data structures) implemented in all six languages with
@@ -162,6 +184,9 @@ matching output. See [practice/README.md](practice/README.md).
 9. ✅ Multithreading & multiprocessing (17) across all six languages
 10. ✅ Higher concepts: error handling (18), generics (19), modules (20)
 11. ✅ Language-specific features (21) — six idioms per language
+12. ✅ Custom data structures (22) — linked lists, trees, graphs
+13. ✅ File handling (23) — read, write, append, delete
+14. ✅ Language comparison & libraries/frameworks guides (`docs/`)
 8. ⬜ Language-specific features
 
 See [AGENTS.md](AGENTS.md) before adding anything — it documents the conventions

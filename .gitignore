@@ -60,5 +60,8 @@ practice/cpp/*
 Thumbs.db
 Desktop.ini
 
+# ----- Demo files from file_handling topic (23) -----
+_alllangs_demo.txt
+
 # ----- Agent / local session (not part of the repo) -----
 terminals/

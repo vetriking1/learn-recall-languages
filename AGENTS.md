@@ -40,7 +40,13 @@ Concurrency: `17 threads_and_processes` (multithreading + multiprocessing in one
 file per language). Higher concepts: `18 error_handling`, `19 generics`,
 `20 modules` (one file per topic per language). Language spotlight:
 `21 language_features` (six idioms unique to each language — sections differ
-per file; docs use thematic rows, not 1:1 method recall). Rust has no
+per file; docs use thematic rows, not 1:1 method recall). Custom algorithms:
+`22 custom_data_structures` (linked list, binary tree in/pre/postorder, graph
+BFS/DFS — same test data in every language). File I/O:
+`23 file_handling` (write, read, append, exists, lines, delete — uses
+`_alllangs_demo.txt`, gitignored, removed at end). Meta docs (no `NN_` prefix,
+no runnable files): `docs/language_comparison.html`, `docs/libraries_frameworks.html`
+— linked from `docs/index.html` under "Language guides". Rust has no
 classes/inheritance — those files use `struct`+`impl`, module privacy, and
 `trait`s (with a cross-language note explaining why).
 

@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Libraries &amp; Frameworks — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ Libraries &amp; frameworks</span>
+    </header>
+    <main>
+      <h1><span class="emoji">🧰</span>Libraries &amp; frameworks</h1>
+      <p class="subtitle">
+        Syntax topics (01–23) teach the language. This page maps each language to
+        what teams actually ship with: web stacks, ORMs, test tools, and where the
+        ecosystem is strongest.
+      </p>
+
+      <div class="note">
+        <strong>Framework vs library:</strong> a <em>library</em> you call
+        (<code>requests</code>, <code>serde</code>). A <em>framework</em> calls you
+        (<code>Django</code>, <code>Spring</code>, <code>ASP.NET</code>) — it owns
+        the structure; you fill in hooks.
+      </div>
+
+      <h2 style="margin-top: 2rem; font-size: 1.1rem;">Web &amp; APIs</h2>
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Role</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Backend framework</td>
+            <td><code>Django</code>, <code>FastAPI</code>, Flask</td>
+            <td><code>Express</code>, <code>NestJS</code>, Fastify</td>
+            <td><code>ASP.NET Core</code></td>
+            <td><code>Axum</code>, Actix, Rocket</td>
+            <td><code>Drogon</code>, Crow, Beast</td>
+            <td><code>Spring Boot</code></td>
+          </tr>
+          <tr>
+            <td class="op">Frontend / UI</td>
+            <td>— (use TS)</td>
+            <td><code>React</code>, Vue, Angular, Svelte</td>
+            <td><code>Blazor</code></td>
+            <td><code>Leptos</code>, Yew (WASM)</td>
+            <td>Qt, ImGui (native)</td>
+            <td>— (Kotlin/Android UI)</td>
+          </tr>
+          <tr>
+            <td class="op">HTTP client</td>
+            <td><code>requests</code>, httpx</td>
+            <td><code>fetch</code>, axios</td>
+            <td><code>HttpClient</code></td>
+            <td><code>reqwest</code></td>
+            <td><code>cpr</code>, libcurl</td>
+            <td>OkHttp, <code>java.net.http</code></td>
+          </tr>
+          <tr>
+            <td class="op">Auth (common)</td>
+            <td>OAuth libs, Django auth</td>
+            <td>Passport.js, Auth.js</td>
+            <td>Identity, JWT Bearer</td>
+            <td>oauth2, jsonwebtoken ports</td>
+            <td>manual / Boost</td>
+            <td>Spring Security</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 style="margin-top: 2rem; font-size: 1.1rem;">Data, ORM &amp; serialization</h2>
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Role</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">ORM / DB layer</td>
+            <td><code>SQLAlchemy</code>, Django ORM</td>
+            <td><code>Prisma</code>, TypeORM, Drizzle</td>
+            <td><code>Entity Framework</code></td>
+            <td><code>sqlx</code>, Diesel</td>
+            <td>ODBC wrappers, SOCI</td>
+            <td><code>Hibernate</code>, JPA</td>
+          </tr>
+          <tr>
+            <td class="op">JSON</td>
+            <td><code>json</code> (stdlib)</td>
+            <td><code>JSON.parse</code></td>
+            <td><code>System.Text.Json</code></td>
+            <td><code>serde</code> + serde_json</td>
+            <td><code>nlohmann/json</code></td>
+            <td>Jackson, Gson</td>
+          </tr>
+          <tr>
+            <td class="op">Validation</td>
+            <td><code>pydantic</code></td>
+            <td><code>zod</code></td>
+            <td>Data annotations</td>
+            <td><code>validator</code></td>
+            <td>manual</td>
+            <td>Bean Validation</td>
+          </tr>
+          <tr>
+            <td class="op">Data / ML</td>
+            <td><code>pandas</code>, NumPy, PyTorch</td>
+            <td>TensorFlow.js (niche)</td>
+            <td>ML.NET</td>
+            <td><code>ndarray</code>, candle (niche)</td>
+            <td>Eigen, OpenCV</td>
+            <td>DL4J, Weka</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 style="margin-top: 2rem; font-size: 1.1rem;">Testing, async &amp; tooling</h2>
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Role</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Unit testing</td>
+            <td><code>pytest</code></td>
+            <td><code>Jest</code>, Vitest</td>
+            <td>xUnit, NUnit</td>
+            <td>built-in <code>#[test]</code></td>
+            <td>Google Test, Catch2</td>
+            <td>JUnit 5</td>
+          </tr>
+          <tr>
+            <td class="op">Async runtime</td>
+            <td><code>asyncio</code></td>
+            <td>Node event loop</td>
+            <td><code>async</code>/<code>await</code> Task</td>
+            <td><code>tokio</code></td>
+            <td>callbacks / coroutines</td>
+            <td>Virtual threads, CompletableFuture</td>
+          </tr>
+          <tr>
+            <td class="op">Build / package</td>
+            <td>pip, uv, poetry</td>
+            <td>npm, pnpm, vite</td>
+            <td>dotnet CLI, NuGet</td>
+            <td><code>cargo</code> (best-in-class)</td>
+            <td>CMake, Meson</td>
+            <td>Maven, Gradle</td>
+          </tr>
+          <tr>
+            <td class="op">Lint / format</td>
+            <td>ruff, black</td>
+            <td>ESLint, Prettier</td>
+            <td>dotnet format, analyzers</td>
+            <td>clippy, rustfmt</td>
+            <td>clang-format, clang-tidy</td>
+            <td>Checkstyle, SpotBugs</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 style="margin-top: 2rem; font-size: 1.1rem;">Domain-specific strengths</h2>
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Domain</th>
+            <th>Go-to language</th>
+            <th>Typical stack</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">LLM / AI apps</td>
+            <td><span class="badge py">Python</span></td>
+            <td>PyTorch, Hugging Face, LangChain, FastAPI</td>
+          </tr>
+          <tr>
+            <td class="op">SaaS web product</td>
+            <td><span class="badge ts">TypeScript</span></td>
+            <td>React + Node/Nest + PostgreSQL + Prisma</td>
+          </tr>
+          <tr>
+            <td class="op">Enterprise ERP / banking</td>
+            <td><span class="badge java">Java</span></td>
+            <td>Spring Boot + Kafka + Oracle/Postgres</td>
+          </tr>
+          <tr>
+            <td class="op">Windows / Azure shop</td>
+            <td><span class="badge cs">C#</span></td>
+            <td>ASP.NET Core + EF + Azure SDK</td>
+          </tr>
+          <tr>
+            <td class="op">Indie / mobile game</td>
+            <td><span class="badge cs">C#</span></td>
+            <td>Unity + C# scripts</td>
+          </tr>
+          <tr>
+            <td class="op">AAA / engine programming</td>
+            <td><span class="badge cpp">C++</span></td>
+            <td>Unreal Engine, custom engines</td>
+          </tr>
+          <tr>
+            <td class="op">CLI developer tool</td>
+            <td><span class="badge rs">Rust</span></td>
+            <td>clap + tokio + cargo publish</td>
+          </tr>
+          <tr>
+            <td class="op">Browser extension</td>
+            <td><span class="badge ts">TypeScript</span></td>
+            <td>Chrome APIs + React/Vite</td>
+          </tr>
+          <tr>
+            <td class="op">Scripting / DevOps glue</td>
+            <td><span class="badge py">Python</span></td>
+            <td>Ansible modules, boto3, small FastAPI services</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 style="margin-top: 2rem; font-size: 1.1rem;">Per-language ecosystem snapshot</h2>
+
+      <div class="note warn" style="margin-top: 12px;">
+        <span class="badge py">Python</span>
+        <strong>Shines:</strong> fastest path from idea to working API or notebook;
+        unmatched ML/data library depth.<br />
+        <strong>Reach for:</strong> FastAPI (APIs), Django (batteries-included web),
+        pandas (tables), pytest (tests).<br />
+        <strong>Skip for:</strong> hard real-time, mobile-native UI, teams that need
+        compile-time guarantees on every line.
+      </div>
+      <div class="note warn" style="margin-top: 8px;">
+        <span class="badge ts">TypeScript</span>
+        <strong>Shines:</strong> one typed language across browser + server; npm
+        ecosystem size.<br />
+        <strong>Reach for:</strong> React (UI), Next.js (full-stack), NestJS (structured
+        API), Zod (validation).<br />
+        <strong>Skip for:</strong> number-crunching kernels, kernel drivers, projects
+        with no JavaScript runtime allowed.
+      </div>
+      <div class="note warn" style="margin-top: 8px;">
+        <span class="badge cs">C#</span>
+        <strong>Shines:</strong> productive OOP + LINQ + first-class tooling in
+        Visual Studio / Rider.<br />
+        <strong>Reach for:</strong> ASP.NET Core (web), EF Core (SQL), Unity (games),
+        MAUI (cross-platform UI).<br />
+        <strong>Skip for:</strong> tiny embedded firmware, teams standardized on JVM
+        only.
+      </div>
+      <div class="note warn" style="margin-top: 8px;">
+        <span class="badge rs">Rust</span>
+        <strong>Shines:</strong> safe systems programming with cargo; WASM and CLI
+        tools with single static binaries.<br />
+        <strong>Reach for:</strong> tokio (async), serde (JSON), axum (web), clap
+        (CLI).<br />
+        <strong>Skip for:</strong> hackathon MVPs, shops without time for borrow-checker
+        onboarding.
+      </div>
+      <div class="note warn" style="margin-top: 8px;">
+        <span class="badge cpp">C++</span>
+        <strong>Shines:</strong> control over memory and hardware; massive existing
+        code in games and finance.<br />
+        <strong>Reach for:</strong> STL, Boost (selectively), Qt (desktop), Unreal
+        (games), CMake (build).<br />
+        <strong>Skip for:</strong> new CRUD web apps unless you must integrate with
+        C++ libs.
+      </div>
+      <div class="note warn" style="margin-top: 8px;">
+        <span class="badge java">Java</span>
+        <strong>Shines:</strong> decade-proven server patterns, JVM monitoring,
+        gigantic hiring pool in enterprise.<br />
+        <strong>Reach for:</strong> Spring Boot (everything), Hibernate (ORM), Kafka
+        clients, JUnit (tests).<br />
+        <strong>Skip for:</strong> one-file scripts, front-end work (use TS/Kotlin
+        for Android UI).
+      </div>
+
+      <div class="note" style="margin-top: 24px;">
+        <strong>Related:</strong> <a href="language_comparison.html">Language
+        comparison</a> — when to choose each language at all. Runnable syntax for
+        topics 01–23 lives on the <a href="index.html">main index</a>.
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

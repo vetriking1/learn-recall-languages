@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Language Comparison — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ Language comparison</span>
+    </header>
+    <main>
+      <h1><span class="emoji">🌍</span>Why these six languages?</h1>
+      <p class="subtitle">
+        No single language wins everything. This workspace compares six that cover
+        most real-world trade-offs: scripting, web, enterprise, systems, games, and
+        the JVM ecosystem. Use this page to pick <em>which</em> to learn next — then
+        use topics 01–23 to recall <em>how</em> each one spells it.
+      </p>
+
+      <div class="note">
+        <strong>Why compare at all?</strong> Syntax drifts in memory after you switch
+        stacks. Keeping six runnable references side-by-side is cheaper than
+        re-googling “how do I append to a list in Java again?” every quarter.
+      </div>
+
+      <h2 style="margin-top: 2rem; font-size: 1.1rem;">At-a-glance comparison</h2>
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Dimension</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Widely used for</td>
+            <td>AI/ML, scripts, automation, backends</td>
+            <td>Web frontends, full-stack Node, tooling</td>
+            <td>Enterprise apps, games (Unity), Windows</td>
+            <td>Systems, CLI, WebAssembly, infra tools</td>
+            <td>Games, engines, embedded, HFT, legacy</td>
+            <td>Android, enterprise backends, big banks</td>
+          </tr>
+          <tr>
+            <td class="op">Popularity (2025–26)</td>
+            <td>Top 3 — TIOBE &amp; surveys</td>
+            <td>Top 5 — dominates web dev hiring</td>
+            <td>Top 5 — strong in enterprise</td>
+            <td>Rising — loved, smaller job pool</td>
+            <td>Top 5 — huge legacy + performance niche</td>
+            <td>Top 3 — massive existing codebase base</td>
+          </tr>
+          <tr>
+            <td class="op">Typing</td>
+            <td>Dynamic (+ optional hints)</td>
+            <td>Static, structural</td>
+            <td>Static, nominal</td>
+            <td>Static, inferred, strict</td>
+            <td>Static, manual + templates</td>
+            <td>Static, nominal, erasure</td>
+          </tr>
+          <tr>
+            <td class="op">Memory</td>
+            <td>GC</td>
+            <td>GC (V8/Node)</td>
+            <td>GC (.NET)</td>
+            <td>Ownership — no GC</td>
+            <td>Manual / RAII / smart pointers</td>
+            <td>GC (JVM)</td>
+          </tr>
+          <tr>
+            <td class="op">Runtime speed</td>
+            <td>Slow–medium</td>
+            <td>Medium (JIT)</td>
+            <td>Fast (JIT/AOT)</td>
+            <td>Very fast (native)</td>
+            <td>Very fast (native)</td>
+            <td>Fast (JIT, warmed up)</td>
+          </tr>
+          <tr>
+            <td class="op">Learning curve</td>
+            <td>Gentle</td>
+            <td>Moderate (JS + types)</td>
+            <td>Moderate</td>
+            <td>Steep (borrow checker)</td>
+            <td>Steep (memory + templates)</td>
+            <td>Moderate (ceremony)</td>
+          </tr>
+          <tr>
+            <td class="op">Compile step?</td>
+            <td>No (interpreted)</td>
+            <td>Yes → JS</td>
+            <td>Yes → IL / native</td>
+            <td>Yes → native</td>
+            <td>Yes → native</td>
+            <td>Yes → bytecode</td>
+          </tr>
+          <tr>
+            <td class="op">Package manager</td>
+            <td>pip / uv</td>
+            <td>npm / pnpm</td>
+            <td>NuGet</td>
+            <td>cargo</td>
+            <td>vcpkg / Conan</td>
+            <td>Maven / Gradle</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 style="margin-top: 2rem; font-size: 1.1rem;">Best for vs avoid when</h2>
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Language</th>
+            <th>Shines at ✓</th>
+            <th>Weak at ✗</th>
+            <th>Why learn it anyway</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op"><span class="badge py">Python</span></td>
+            <td>Prototyping, data science, glue code, teaching, LLM tooling</td>
+            <td>Mobile UI, ultra-low latency, strict compile-time safety</td>
+            <td>Default “get it done” language; readable; huge library ecosystem</td>
+          </tr>
+          <tr>
+            <td class="op"><span class="badge ts">TypeScript</span></td>
+            <td>Browser apps, React/Vue/Angular, full-stack JS teams, DX tooling</td>
+            <td>CPU-heavy native apps without WASM/Node limits</td>
+            <td>One language for UI + API; types catch bugs before production</td>
+          </tr>
+          <tr>
+            <td class="op"><span class="badge cs">C#</span></td>
+            <td>.NET APIs, Unity games, Windows desktop, Azure cloud, line-of-business</td>
+            <td>Linux-first tiny embedded; no browser without Blazor/WASM trade-offs</td>
+            <td>Modern language + mature IDE + cross-platform .NET today</td>
+          </tr>
+          <tr>
+            <td class="op"><span class="badge rs">Rust</span></td>
+            <td>CLIs, parsers, WebAssembly, safe systems code, performance-critical services</td>
+            <td>Quick scripts, rapid UI iteration, teams allergic to borrow errors</td>
+            <td>Memory safety without GC; growing in infra (Linux, browsers, tools)</td>
+          </tr>
+          <tr>
+            <td class="op"><span class="badge cpp">C++</span></td>
+            <td>Game engines, embedded, existing C++ codebases, max performance control</td>
+            <td>Fast greenfield web APIs; safe concurrency without discipline</td>
+            <td>Still runs much of the world (games, OS, browsers, finance)</td>
+          </tr>
+          <tr>
+            <td class="op"><span class="badge java">Java</span></td>
+            <td>Large enterprise backends, Android (Kotlin often preferred now), batch jobs</td>
+            <td>Snappy scripts, small utilities, cutting-edge ML research ergonomics</td>
+            <td>Decades of libraries, hiring pool, JVM stability and tooling</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 style="margin-top: 2rem; font-size: 1.1rem;">Pick by goal</h2>
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Your goal</th>
+            <th>First pick</th>
+            <th>Strong alternative</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="op">First language ever</td><td><span class="badge py">Python</span></td><td><span class="badge java">Java</span></td></tr>
+          <tr><td class="op">Web frontend job</td><td><span class="badge ts">TypeScript</span></td><td>—</td></tr>
+          <tr><td class="op">Corporate / bank backend</td><td><span class="badge java">Java</span></td><td><span class="badge cs">C#</span></td></tr>
+          <tr><td class="op">Startup full-stack</td><td><span class="badge ts">TypeScript</span></td><td><span class="badge py">Python</span></td></tr>
+          <tr><td class="op">Machine learning</td><td><span class="badge py">Python</span></td><td>—</td></tr>
+          <tr><td class="op">Game development</td><td><span class="badge cs">C#</span> (Unity)</td><td><span class="badge cpp">C++</span> (Unreal)</td></tr>
+          <tr><td class="op">Systems / CLI tool</td><td><span class="badge rs">Rust</span></td><td><span class="badge cpp">C++</span></td></tr>
+          <tr><td class="op">Android app</td><td>Kotlin (JVM cousin)</td><td><span class="badge java">Java</span></td></tr>
+          <tr><td class="op">Max performance, existing native code</td><td><span class="badge cpp">C++</span></td><td><span class="badge rs">Rust</span></td></tr>
+        </tbody>
+      </table>
+
+      <div class="note warn" style="margin-top: 24px;">
+        <strong>Popularity ≠ best fit.</strong> TypeScript dominates new web UIs, but
+        your team might maintain a Java monolith for ten more years. Learn the
+        language your <em>job or project</em> uses — use AllLanguages to transfer
+        patterns when you switch.
+      </div>
+
+      <div class="note" style="margin-top: 12px;">
+        <strong>Next:</strong> see <a href="libraries_frameworks.html">Libraries &amp;
+        Frameworks</a> for Django, React, .NET, Spring, and what to reach for when
+        you move from syntax drills to real applications.
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>
