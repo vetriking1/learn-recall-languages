@@ -36,7 +36,11 @@ OOP topics: `10 classes · 11 encapsulation · 12 inheritance · 13 polymorphism
 14 abstraction`. Data structures: `15 data_structures` (maps, sets, stack,
 queue, heap, tuples — one file per language, not split by type). Async:
 `16 async_await` (async/await or language equivalent — one file per language).
-Rust has no
+Concurrency: `17 threads_and_processes` (multithreading + multiprocessing in one
+file per language). Higher concepts: `18 error_handling`, `19 generics`,
+`20 modules` (one file per topic per language). Language spotlight:
+`21 language_features` (six idioms unique to each language — sections differ
+per file; docs use thematic rows, not 1:1 method recall). Rust has no
 classes/inheritance — those files use `struct`+`impl`, module privacy, and
 `trait`s (with a cross-language note explaining why).
 

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generics — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 19 · Generics ★</span>
+    </header>
+    <main>
+      <h1><span class="emoji">🔤</span>Generics <span class="card"><span class="focus" style="font-size:0.7rem;">★ concept focus</span></span></h1>
+      <p class="subtitle">
+        Write one function or class that works for many types — with optional
+        constraints on what <code>T</code> can do.
+      </p>
+      <div class="files">
+        <a href="../python/19_generics.py">python/19_generics.py</a>
+        <a href="../typescript/19_generics.ts">typescript/19_generics.ts</a>
+        <a href="../csharp/19_generics.cs">csharp/19_generics.cs</a>
+        <a href="../rust/19_generics.rs">rust/19_generics.rs</a>
+        <a href="../cpp/19_generics.cpp">cpp/19_generics.cpp</a>
+        <a href="../java/19_generics.java">java/19_generics.java</a>
+      </div>
+
+      <div class="note warn">
+        <strong>Name differs:</strong> C++/Rust call them <strong>templates</strong>
+        (<code style="display: inline-block">template&lt;typename T&gt;</code>).
+        Python uses <code style="display: inline-block">TypeVar</code> for static
+        typing; at runtime it's duck typing. Java erases generics at runtime.
+      </div>
+
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Generic function</td>
+            <td><code>def swap(a: T, b: T)</code></td>
+            <td><code>function swap&lt;T&gt;(a: T, b: T)</code></td>
+            <td><code>void Swap&lt;T&gt;(ref T a)</code></td>
+            <td><code>fn swap&lt;T&gt;(a: &amp;mut T, b: &amp;mut T)</code></td>
+            <td><code>template&lt;typename T&gt; void swap</code></td>
+            <td><code>&lt;T&gt; void swap(T[] a)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Generic class</td>
+            <td><code>class Box(Generic[T])</code></td>
+            <td><code>class Box&lt;T&gt;</code></td>
+            <td><code>class Box&lt;T&gt;</code></td>
+            <td><code>struct Box&lt;T&gt;</code></td>
+            <td><code>template&lt;typename T&gt; class Box</code></td>
+            <td><code>class Box&lt;T&gt;</code></td>
+          </tr>
+          <tr>
+            <td class="op">Constraint / bound</td>
+            <td><code>T: SupportsDunderLT</code></td>
+            <td><code>T extends number</code></td>
+            <td><code>where T : IComparable</code></td>
+            <td><code>T: Ord + Clone</code></td>
+            <td><code>requires std::totally_ordered&lt;T&gt;</code></td>
+            <td><code>&lt;T extends Comparable&gt;</code></td>
+          </tr>
+          <tr>
+            <td class="op">Multiple params</td>
+            <td><code>Pair[T, U]</code></td>
+            <td><code>Pair&lt;K, V&gt;</code></td>
+            <td><code>Pair&lt;TKey, TValue&gt;</code></td>
+            <td><code>struct Pair&lt;A, B&gt;</code></td>
+            <td><code>template&lt;typename T, U&gt;</code></td>
+            <td><code>Pair&lt;K, V&gt;</code></td>
+          </tr>
+          <tr>
+            <td class="op">Instantiate</td>
+            <td><code>Box[int](42)</code></td>
+            <td><code>new Box&lt;number&gt;(42)</code></td>
+            <td><code>new Box&lt;int&gt;(42)</code></td>
+            <td><code>Box { value: 42 }</code></td>
+            <td><code>Box&lt;int&gt;{42}</code></td>
+            <td><code>new Box&lt;Integer&gt;(42)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Runtime behavior</td>
+            <td><code>duck typing</code></td>
+            <td><code>erased to any/object</code></td>
+            <td><code>reified (value types)</code></td>
+            <td><code>monomorphized</code></td>
+            <td><code>monomorphized</code></td>
+            <td><code>type erasure</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

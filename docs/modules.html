@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modules — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 20 · Modules ★</span>
+    </header>
+    <main>
+      <h1><span class="emoji">📦</span>Modules <span class="card"><span class="focus" style="font-size:0.7rem;">★ concept focus</span></span></h1>
+      <p class="subtitle">
+        Split code into files — import, export, namespaces, and control what is
+        public vs private.
+      </p>
+      <div class="files">
+        <a href="../python/20_modules.py">python/20_modules.py</a>
+        <a href="../typescript/20_modules.ts">typescript/20_modules.ts</a>
+        <a href="../csharp/20_modules.cs">csharp/20_modules.cs</a>
+        <a href="../rust/20_modules.rs">rust/20_modules.rs</a>
+        <a href="../cpp/20_modules.cpp">cpp/20_modules.cpp</a>
+        <a href="../java/20_modules.java">java/20_modules.java</a>
+      </div>
+
+      <div class="note warn">
+        <strong>Single-file demos:</strong> these runnable files teach import/export
+        syntax inside one file (inline <code style="display: inline-block">mod</code>
+        in Rust, stdlib imports elsewhere). Real projects split into multiple files.
+      </div>
+
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Import</td>
+            <td><code>import math</code></td>
+            <td><code>import { x } from "./file"</code></td>
+            <td><code>using System;</code></td>
+            <td><code>use std::f64::consts::PI;</code></td>
+            <td><code>#include &lt;cmath&gt;</code></td>
+            <td><code>import java.util.List;</code></td>
+          </tr>
+          <tr>
+            <td class="op">From / selective</td>
+            <td><code>from math import sqrt</code></td>
+            <td><code>import { sqrt } from "math"</code></td>
+            <td><code>using static System.Math.PI</code></td>
+            <td><code>use crate::utils::greet;</code></td>
+            <td><code>using std::sqrt;</code></td>
+            <td><code>import static java.lang.Math.PI;</code></td>
+          </tr>
+          <tr>
+            <td class="op">Export / public</td>
+            <td><code># no private keyword on module level</code></td>
+            <td><code>export function f()</code></td>
+            <td><code>public class Foo</code></td>
+            <td><code>pub fn f()</code></td>
+            <td><code>// header declares</code></td>
+            <td><code>public class Foo</code></td>
+          </tr>
+          <tr>
+            <td class="op">Alias</td>
+            <td><code>import numpy as np</code></td>
+            <td><code>import * as fs from "fs"</code></td>
+            <td><code>using Alias = Namespace.Type</code></td>
+            <td><code>use std::fmt::Display as D;</code></td>
+            <td><code>namespace u = util;</code></td>
+            <td><code>import java.util.List as L; // n/a</code></td>
+          </tr>
+          <tr>
+            <td class="op">Module unit</td>
+            <td><code>file.py / package/</code></td>
+            <td><code>file.ts / index.ts</code></td>
+            <td><code>namespace / project</code></td>
+            <td><code>mod foo;  // foo.rs</code></td>
+            <td><code>file.cpp + .h</code></td>
+            <td><code>package + .java file</code></td>
+          </tr>
+          <tr>
+            <td class="op">Entry point</td>
+            <td><code>if __name__ == "__main__":</code></td>
+            <td><code>// main at bottom</code></td>
+            <td><code>static void Main()</code></td>
+            <td><code>fn main()</code></td>
+            <td><code>int main()</code></td>
+            <td><code>public static void main</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

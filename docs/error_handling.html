@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error Handling — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 18 · Error Handling ★</span>
+    </header>
+    <main>
+      <h1><span class="emoji">🛡️</span>Error Handling <span class="card"><span class="focus" style="font-size:0.7rem;">★ concept focus</span></span></h1>
+      <p class="subtitle">
+        Catch failures, throw/raise, custom errors, cleanup, and propagate — or
+        return <code>Result</code> in Rust.
+      </p>
+      <div class="files">
+        <a href="../python/18_error_handling.py">python/18_error_handling.py</a>
+        <a href="../typescript/18_error_handling.ts">typescript/18_error_handling.ts</a>
+        <a href="../csharp/18_error_handling.cs">csharp/18_error_handling.cs</a>
+        <a href="../rust/18_error_handling.rs">rust/18_error_handling.rs</a>
+        <a href="../cpp/18_error_handling.cpp">cpp/18_error_handling.cpp</a>
+        <a href="../java/18_error_handling.java">java/18_error_handling.java</a>
+      </div>
+
+      <div class="note warn">
+        <strong>Rust is different:</strong> no exceptions — use
+        <code style="display: inline-block">Result&lt;T, E&gt;</code> and the
+        <code style="display: inline-block">?</code> operator. The runnable file
+        prints the same teaching output using <code style="display: inline-block">match</code>
+        on <code style="display: inline-block">Err</code>.
+      </div>
+
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Try / catch</td>
+            <td><code>try: ... except E:</code></td>
+            <td><code>try { } catch (e) { }</code></td>
+            <td><code>try { } catch (E) { }</code></td>
+            <td><code>match f() { Ok(v)=&gt; Err(e)=&gt; }</code></td>
+            <td><code>try { } catch (E&amp;) { }</code></td>
+            <td><code>try { } catch (E e) { }</code></td>
+          </tr>
+          <tr>
+            <td class="op">Throw / raise</td>
+            <td><code>raise ValueError("msg")</code></td>
+            <td><code>throw new Error("msg")</code></td>
+            <td><code>throw new Exception("msg")</code></td>
+            <td><code>return Err(AppError::...)</code></td>
+            <td><code>throw std::runtime_error("msg")</code></td>
+            <td><code>throw new RuntimeException("msg")</code></td>
+          </tr>
+          <tr>
+            <td class="op">Custom error</td>
+            <td><code>class CustomBad(Exception):</code></td>
+            <td><code>class CustomBad extends Error</code></td>
+            <td><code>class CustomBad : Exception</code></td>
+            <td><code>enum AppError { CustomBad }</code></td>
+            <td><code>class CustomBad : std::exception</code></td>
+            <td><code>class CustomBad extends Exception</code></td>
+          </tr>
+          <tr>
+            <td class="op">Finally / cleanup</td>
+            <td><code>finally:</code></td>
+            <td><code>finally { }</code></td>
+            <td><code>finally { }</code></td>
+            <td><code>Drop impl / defer pattern</code></td>
+            <td><code>RAII scope guard</code></td>
+            <td><code>finally { }</code></td>
+          </tr>
+          <tr>
+            <td class="op">Propagate</td>
+            <td><code>raise  # re-raise</code></td>
+            <td><code>throw e</code></td>
+            <td><code>throw;</code></td>
+            <td><code>?</code> operator</td>
+            <td><code>throw;</code></td>
+            <td><code>throw e;</code></td>
+          </tr>
+          <tr>
+            <td class="op">Catch type</td>
+            <td><code>except ValueError as e:</code></td>
+            <td><code>catch (e: unknown)</code></td>
+            <td><code>catch (Exception ex)</code></td>
+            <td><code>if let Err(e) = ...</code></td>
+            <td><code>catch (const std::exception&amp;)</code></td>
+            <td><code>catch (IllegalArgumentException)</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

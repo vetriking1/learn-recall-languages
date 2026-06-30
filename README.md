@@ -53,6 +53,30 @@ Maps, sets, stack, queue, heap, and tuples/pairs — all in one file per languag
 
 Non-blocking execution: async functions, await, parallel tasks, delays, errors.
 
+### Threads & Processes (17)
+
+| #  | Topic              | Python                                  | TypeScript                                  | C#                                       | Rust                                     | C++                                      | Java                                      | Visual                            |
+|----|--------------------|-----------------------------------------|---------------------------------------------|------------------------------------------|------------------------------------------|------------------------------------------|-------------------------------------------|-----------------------------------|
+| 17 | Threads/Processes ★| `python/17_threads_and_processes.py`    | `typescript/17_threads_and_processes.ts`    | `csharp/17_threads_and_processes.cs`     | `rust/17_threads_and_processes.rs`       | `cpp/17_threads_and_processes.cpp`       | `java/17_threads_and_processes.java`      | `docs/threads_and_processes.html` |
+
+Multithreading (spawn, join, mutex) and multiprocessing (separate child process).
+
+### Higher Concepts (18–20)
+
+| #  | Topic           | Python                      | TypeScript                      | C#                           | Rust                         | C++                          | Java                          | Visual                    |
+|----|-----------------|-----------------------------|---------------------------------|------------------------------|------------------------------|------------------------------|-------------------------------|---------------------------|
+| 18 | Error Handling ★| `python/18_error_handling.py`| `typescript/18_error_handling.ts`| `csharp/18_error_handling.cs`| `rust/18_error_handling.rs`  | `cpp/18_error_handling.cpp`  | `java/18_error_handling.java` | `docs/error_handling.html`|
+| 19 | Generics ★      | `python/19_generics.py`     | `typescript/19_generics.ts`     | `csharp/19_generics.cs`      | `rust/19_generics.rs`        | `cpp/19_generics.cpp`        | `java/19_generics.java`       | `docs/generics.html`      |
+| 20 | Modules ★       | `python/20_modules.py`      | `typescript/20_modules.ts`      | `csharp/20_modules.cs`       | `rust/20_modules.rs`           | `cpp/20_modules.cpp`           | `java/20_modules.java`        | `docs/modules.html`       |
+
+### Language-Specific Features (21)
+
+| #  | Topic              | Python                           | TypeScript                           | C#                                | Rust                              | C++                               | Java                               | Visual                         |
+|----|--------------------|----------------------------------|--------------------------------------|-----------------------------------|-----------------------------------|-----------------------------------|------------------------------------|--------------------------------|
+| 21 | Language Features ★| `python/21_language_features.py` | `typescript/21_language_features.ts` | `csharp/21_language_features.cs`  | `rust/21_language_features.rs`    | `cpp/21_language_features.cpp`    | `java/21_language_features.java`   | `docs/language_features.html`  |
+
+Six idioms per language that don't map 1:1 across the grid (comprehensions, LINQ, ownership, etc.).
+
 ### Object-Oriented Programming (10–14)
 
 | #  | Topic         | Python                       | TypeScript                       | C#                            | Rust                        | C++                         | Java                          | Visual                     |
@@ -135,7 +159,9 @@ matching output. See [practice/README.md](practice/README.md).
 6. ✅ OOP across all six languages: classes, encapsulation, inheritance, polymorphism, abstraction (10–14)
 7. ✅ Data structures: maps, sets, stack, queue, heap, tuples (15) + practice exercises
 8. ✅ Async / await (16) across all six languages
-9. ⬜ Higher concepts: error handling, generics, modules
+9. ✅ Multithreading & multiprocessing (17) across all six languages
+10. ✅ Higher concepts: error handling (18), generics (19), modules (20)
+11. ✅ Language-specific features (21) — six idioms per language
 8. ⬜ Language-specific features
 
 See [AGENTS.md](AGENTS.md) before adding anything — it documents the conventions

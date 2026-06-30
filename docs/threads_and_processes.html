@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Threads &amp; Processes — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 17 · Threads &amp; Processes ★</span>
+    </header>
+    <main>
+      <h1><span class="emoji">🔀</span>Multithreading &amp; Multiprocessing <span class="card"><span class="focus" style="font-size:0.7rem;">★ concept focus</span></span></h1>
+      <p class="subtitle">
+        Threads share memory inside one process; processes run separately with
+        their own memory — spawn, join, lock, and launch.
+      </p>
+      <div class="files">
+        <a href="../python/17_threads_and_processes.py">python/17_threads_and_processes.py</a>
+        <a href="../typescript/17_threads_and_processes.ts">typescript/17_threads_and_processes.ts</a>
+        <a href="../csharp/17_threads_and_processes.cs">csharp/17_threads_and_processes.cs</a>
+        <a href="../rust/17_threads_and_processes.rs">rust/17_threads_and_processes.rs</a>
+        <a href="../cpp/17_threads_and_processes.cpp">cpp/17_threads_and_processes.cpp</a>
+        <a href="../java/17_threads_and_processes.java">java/17_threads_and_processes.java</a>
+      </div>
+
+      <div class="note warn">
+        <strong>Thread vs process:</strong> threads are lighter and share memory
+        (needs a <strong>lock/mutex</strong> for safe counters). Processes are
+        isolated — use them when you need a separate program or crash isolation.
+        <code style="display: inline-block">async/await</code> (topic 16) is
+        cooperative single-threaded concurrency; this topic is
+        <em>preemptive</em> parallelism.
+      </div>
+
+      <h2 style="margin-top: 2rem; font-size: 1.1rem;">Multithreading</h2>
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Spawn thread</td>
+            <td><code>Thread(target=f).start()</code></td>
+            <td><code>new Worker(fileURL)</code></td>
+            <td><code>new Thread(f).Start()</code></td>
+            <td><code>thread::spawn(f)</code></td>
+            <td><code>std::thread t(f)</code></td>
+            <td><code>new Thread(f).start()</code></td>
+          </tr>
+          <tr>
+            <td class="op">Wait / join</td>
+            <td><code>t.join()</code></td>
+            <td><code>await once message</code></td>
+            <td><code>t.Join()</code></td>
+            <td><code>handle.join()</code></td>
+            <td><code>t.join()</code></td>
+            <td><code>t.join()</code></td>
+          </tr>
+          <tr>
+            <td class="op">Lock / mutex</td>
+            <td><code>with lock:</code></td>
+            <td><code>Atomics / Mutex</code></td>
+            <td><code>lock (obj) { }</code></td>
+            <td><code>Mutex::lock()</code></td>
+            <td><code>std::lock_guard&lt;mutex&gt;</code></td>
+            <td><code>synchronized / ReentrantLock</code></td>
+          </tr>
+          <tr>
+            <td class="op">Shared counter</td>
+            <td><code>threading.Lock</code></td>
+            <td><code>SharedArrayBuffer + Atomics</code></td>
+            <td><code>lock + int</code></td>
+            <td><code>Arc&lt;Mutex&lt;T&gt;&gt;</code></td>
+            <td><code>mutex + int</code></td>
+            <td><code>AtomicInteger / lock</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 style="margin-top: 2rem; font-size: 1.1rem;">Multiprocessing</h2>
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Operation</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Spawn process</td>
+            <td><code>Process(target=f).start()</code></td>
+            <td><code>spawnSync(cmd, args)</code></td>
+            <td><code>Process.Start(...)</code></td>
+            <td><code>Command::new(cmd).spawn()</code></td>
+            <td><code>std::system(cmd)</code></td>
+            <td><code>new ProcessBuilder(cmd).start()</code></td>
+          </tr>
+          <tr>
+            <td class="op">Wait for process</td>
+            <td><code>p.join()</code></td>
+            <td><code>result.status</code></td>
+            <td><code>process.WaitForExit()</code></td>
+            <td><code>child.wait()</code></td>
+            <td><code>system() return code</code></td>
+            <td><code>process.waitFor()</code></td>
+          </tr>
+          <tr>
+            <td class="op">Exit code</td>
+            <td><code>p.exitcode</code></td>
+            <td><code>status</code></td>
+            <td><code>process.ExitCode</code></td>
+            <td><code>status.code()</code></td>
+            <td><code>WEXITSTATUS / return</code></td>
+            <td><code>process.exitValue()</code></td>
+          </tr>
+          <tr>
+            <td class="op">Pipe / IPC</td>
+            <td><code>Queue() / Pipe()</code></td>
+            <td><code>child.stdout</code></td>
+            <td><code>RedirectStandardOutput</code></td>
+            <td><code>Command::output()</code></td>
+            <td><code>popen()</code></td>
+            <td><code>getInputStream()</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>Recall:</strong> Python GIL limits CPU parallelism in
+        <code style="display: inline-block">threading</code> — use
+        <code style="display: inline-block">multiprocessing</code> for CPU-bound
+        work. I/O-bound work can use threads or async.
+      </div>
+      <div class="note warn">
+        <strong>C++ / Rust threads</strong> need a full threading toolchain
+        (MinGW-w64 or MSVC for C++; <code style="display: inline-block">--edition 2021</code> for Rust).
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

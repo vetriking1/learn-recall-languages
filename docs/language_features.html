@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Language Features — AllLanguages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home" href="index.html">🧭 AllLanguages</a>
+      <span class="crumb">/ 21 · Language Features ★</span>
+    </header>
+    <main>
+      <h1><span class="emoji">✨</span>Language-Specific Features <span class="card"><span class="focus" style="font-size:0.7rem;">★ spotlight</span></span></h1>
+      <p class="subtitle">
+        What makes each language feel like <em>itself</em> — idioms that don't
+        line up one-to-one across the grid. Each file spotlights six features
+        native to that language.
+      </p>
+      <div class="files">
+        <a href="../python/21_language_features.py">python/21_language_features.py</a>
+        <a href="../typescript/21_language_features.ts">typescript/21_language_features.ts</a>
+        <a href="../csharp/21_language_features.cs">csharp/21_language_features.cs</a>
+        <a href="../rust/21_language_features.rs">rust/21_language_features.rs</a>
+        <a href="../cpp/21_language_features.cpp">cpp/21_language_features.cpp</a>
+        <a href="../java/21_language_features.java">java/21_language_features.java</a>
+      </div>
+
+      <div class="note">
+        <strong>Not a symmetric table:</strong> rows below are thematic — each
+        cell shows that language's idiom, not a shared API name.
+      </div>
+
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th class="op">Theme</th>
+            <th><span class="badge py">Python</span></th>
+            <th><span class="badge ts">TypeScript</span></th>
+            <th><span class="badge cs">C#</span></th>
+            <th><span class="badge rs">Rust</span></th>
+            <th><span class="badge cpp">C++</span></th>
+            <th><span class="badge java">Java</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="op">Expressive syntax</td>
+            <td><code>[x*2 for x in range(3)]</code></td>
+            <td><code>x?.y ?? "default"</code></td>
+            <td><code>from n in nums select n*2</code></td>
+            <td><code>match x { E::A =&gt; }</code></td>
+            <td><code>for (auto x : v)</code></td>
+            <td><code>list.stream().map(...)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Metaprogramming / types</td>
+            <td><code>@decorator</code></td>
+            <td><code>satisfies / keyof</code></td>
+            <td><code>pattern matching</code></td>
+            <td><code>trait + impl</code></td>
+            <td><code>constexpr</code></td>
+            <td><code>record</code></td>
+          </tr>
+          <tr>
+            <td class="op">String formatting</td>
+            <td><code>f"name={name}"</code></td>
+            <td><code>`GET /api/${id}`</code></td>
+            <td><code>$"hi {name}"</code></td>
+            <td><code>format!("hi {}", name)</code></td>
+            <td><code>std::format (C++20)</code></td>
+            <td><code>"""text block"""</code></td>
+          </tr>
+          <tr>
+            <td class="op">Flexible calls</td>
+            <td><code>*args, **kwargs</code></td>
+            <td><code>rest ...args</code></td>
+            <td><code>params object</code></td>
+            <td><code>macro_rules!</code></td>
+            <td><code>variadic templates</code></td>
+            <td><code>varargs (legacy)</code></td>
+          </tr>
+          <tr>
+            <td class="op">Resource safety</td>
+            <td><code>with open(...) as f:</code></td>
+            <td><code>using (disposable)</code></td>
+            <td><code>using var x = ...</code></td>
+            <td><code>Drop / ownership</code></td>
+            <td><code>RAII unique_ptr</code></td>
+            <td><code>try-with-resources</code></td>
+          </tr>
+          <tr>
+            <td class="op">Lazy / optional values</td>
+            <td><code>yield generator</code></td>
+            <td><code>union narrowing</code></td>
+            <td><code>nullable ?.</code></td>
+            <td><code>Option&lt;T&gt;</code></td>
+            <td><code>std::optional</code></td>
+            <td><code>Optional&lt;T&gt;</code></td>
+          </tr>
+          <tr>
+            <td class="op">Memory model</td>
+            <td><code>GC (refcount+GC)</code></td>
+            <td><code>GC (runtime)</code></td>
+            <td><code>GC (.NET)</code></td>
+            <td><code>move / borrow / &amp;</code></td>
+            <td><code>move / unique_ptr</code></td>
+            <td><code>GC (JVM)</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 style="margin-top: 2rem; font-size: 1.1rem;">Spotlight — six features per file</h2>
+      <div class="note warn" style="margin-top: 12px;">
+        <span class="badge py">Python</span> comprehensions · decorators · f-strings ·
+        *args/**kwargs · <code style="display:inline-block">with</code> · generators
+      </div>
+      <div class="note warn" style="margin-top: 8px;">
+        <span class="badge ts">TypeScript</span> union narrowing · <code style="display:inline-block">?.</code> ·
+        <code style="display:inline-block">??</code> · keyof/typeof · satisfies · template literals
+      </div>
+      <div class="note warn" style="margin-top: 8px;">
+        <span class="badge cs">C#</span> LINQ · auto-properties · pattern switch ·
+        <code style="display:inline-block">$""</code> · nullable · record + <code style="display:inline-block">with</code>
+      </div>
+      <div class="note warn" style="margin-top: 8px;">
+        <span class="badge rs">Rust</span> ownership · borrow · match · Option · traits · slices
+      </div>
+      <div class="note warn" style="margin-top: 8px;">
+        <span class="badge cpp">C++</span> RAII · std::move · range-for · auto · constexpr · references
+      </div>
+      <div class="note warn" style="margin-top: 8px;">
+        <span class="badge java">Java</span> Streams · var · text blocks · switch expr · record · Optional
+      </div>
+    </main>
+    <footer>AllLanguages workspace · learn once, recall fast.</footer>
+  </body>
+</html>

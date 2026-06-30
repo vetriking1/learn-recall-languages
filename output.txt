@@ -1,0 +1,8 @@
+worker
+main
+joined
+counter: 2000
+A
+B
+child
+exit: 0
